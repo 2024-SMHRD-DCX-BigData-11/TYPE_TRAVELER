@@ -210,6 +210,36 @@
     <div id="maker-container">
     	<div id="maker"><span>ⓒ TYPE_TRAVELER</span></div>
     </div>
+    
+     <!-- 로그인 상태 확인 및 배너 업데이트 script 추가 -->
+    <script>
+        // 페이지 로드 시 로그인 상태 확인 및 배너 업데이트
+        function updateBanner() {
+            const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+            const username = sessionStorage.getItem('username');
+
+            if (isLoggedIn === 'true') {
+                document.getElementById('loginButton').textContent = '마이페이지';
+                document.getElementById('loginButton').href = '${pageContext.request.contextPath}/T_T_Main/T_T_Mypage.jsp';
+                document.getElementById('registerButton').textContent = '로그아웃';
+                document.getElementById('registerButton').href = '#';
+                document.getElementById('registerButton').onclick = logout; // 로그아웃 함수 연결
+            }
+        }
+
+        // 로그아웃 함수
+        function logout() {
+            // 세션에서 로그인 상태 제거
+            sessionStorage.removeItem('isLoggedIn');
+            sessionStorage.removeItem('username');
+            // 메인 페이지로 이동
+            window.location.href = '${pageContext.request.contextPath}/T_T_Main/T_T_Main.jsp';
+        }
+
+        // 페이지 로드 시 배너 업데이트 함수 호출
+        window.onload = updateBanner;
+    </script>
+    
 
 
 </body>
