@@ -17,3 +17,26 @@ body, html {
 .header {
     position: static;
 }
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#calendar {
+    width: 200%;  /* 캘린더 너비를 100%로 설정 */
+    height: calc(100vh - 50px);  /* 캘린더 높이를 화면 전체 높이에서 배너의 높이(예: 50px)를 뺀 값으로 설정 */
+    margin-top: 50px;  /* 배너의 높이만큼 캘린더를 아래로 내림 */
+    box-sizing: border-box;  /* 박스 사이징을 설정하여 패딩과 테두리를 포함한 크기를 조정 */
+    position: center; /* 배너와 겹치지 않도록 캘린더의 위치를 상대적으로 설정 */
+}
+
+#banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* 예시로 배너의 높이를 50px로 설정 */
+    background-color: #ccc; /* 배너의 배경색을 설정 */
+    z-index: 1; /* 캘린더보다 위에 나타나도록 설정 */
+}
