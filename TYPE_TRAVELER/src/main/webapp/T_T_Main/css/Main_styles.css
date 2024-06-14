@@ -583,8 +583,10 @@ select:invalid option:first-child {
     border-radius: 5px;
     box-sizing: border-box;
     font-family: 'S-CoreDream-3Light', sans-serif;
-    margin-right: 10px; /* 이메일 필드와 버튼 사이의 여백 추가 */
-    height: 40px; /* 높이를 고정하여 버튼과 맞춤 */
+    margin-right: 10px;
+    height: 40px;
+    line-height: 20px; /* 텍스트 중앙 정렬 */
+    vertical-align: middle; /* 입력 필드 수직 정렬 */
 }
 
 #joinContent .input-group .check-button {
@@ -595,12 +597,12 @@ select:invalid option:first-child {
     background-color: #ffcc00;
     color: #fff;
     cursor: pointer;
-    height: 40px; /* 높이를 고정하여 입력 필드와 맞춤 */
-    line-height: 40px; /* 버튼 텍스트를 중앙에 맞추기 위해 추가 */
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    vertical-align: middle; /* 버튼 수직 정렬 */
 }
 
 #joinContent label {

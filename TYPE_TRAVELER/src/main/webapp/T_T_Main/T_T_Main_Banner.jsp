@@ -98,9 +98,9 @@
         <form id="joinForm">
             <label for="joinEmail">이메일</label>
             <div class="input-group">
-                <input type="text" id="joinEmail" name="email" placeholder="사용하실 이메일을 입력해 주세요." required>
-                <button type="button" class="check-button" onclick="checkEmail()">중복 확인</button>
-            </div>
+			    <input type="text" id="joinEmail" name="email" placeholder="사용하실 이메일을 입력해 주세요." required>
+			    <button type="button" class="check-button" onclick="checkEmail()">중복 확인</button>
+			</div>
             <span class="error-message" id="emailError"></span>
             
             <label for="joinPassword">비밀번호</label>
