@@ -14,16 +14,10 @@
 <body>
 
    <!-- T_T 상단 배너 -->
-    <div id="banner">
-        <%@ include file="../T_T_Main/T_T_Main_Banner.jsp" %>
-    </div>
-
-	<hr>
+    <%@ include file="../T_T_Main/T_T_Main_Banner.jsp" %>
 
     <!-- 캘린더를 표시할 div 입니다 -->
-    <div id='calendar-container'>
-        <div id='calendar'></div>
-    </div>
+    <div id='calendar'></div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -32,10 +26,9 @@
                 initialView: 'dayGridMonth',
                 locale: 'ko',
                 timeZone: 'Asia/Seoul', // 서울 타임존 설정
-                height: 'auto', // 캘린더가 자동 높이 조정
-                contentHeight: 'auto', // 내용 높이를 자동으로 설정
                 selectable: true,
                 editable: true,
+               
                 select: function(info) {
                     var title = prompt('일정 제목을 입력하세요:');
                     if (title) {
