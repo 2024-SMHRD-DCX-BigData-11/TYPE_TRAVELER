@@ -77,24 +77,7 @@
 
             <!-- step2 -->
             <div class="step">
-                <label for="category">STEP 2</label> <br>
-                <select id="category" name="category">
-                    <option value="" disabled selected>카테고리를 선택해 주세요.</option>
-                    <option value="자연경관">자연경관</option>
-                    <option value="문화및역사">문화및역사</option>
-                    <option value="도시관광">도시관광</option>
-                    <option value="레저및액티비티">레저및액티비티</option>
-                    <option value="맛집탐방">맛집탐방</option>
-                    <option value="힐링및휴식">힐링및휴식</option>
-                    <option value="가족여행">가족여행</option>
-                    <option value="로맨틱여행">로맨틱여행</option>
-                    <option value="호캉스여행">호캉스여행</option>
-                </select>
-            </div>
-
-            <!-- step3 -->
-            <div class="step">
-                <label for="mbti">STEP 3</label> <br>
+                <label for="mbti">STEP 2</label> <br>
                 <select id="mbti" name="mbti">
                     <option value="" disabled selected>MBTI를 선택해 주세요.</option>
                     <option value="ISTJ">ISTJ</option>
@@ -115,7 +98,24 @@
                     <option value="ENTJ">ENTJ</option>
                 </select>
             </div>
-        </div>
+            
+                        <!-- step3 -->
+            <div class="step">
+                <label for="category">STEP 3</label> <br>
+                <select id="category" name="category">
+                    <option value="" disabled selected>카테고리를 선택해 주세요.</option>
+                    <option value="자연경관">자연경관</option>
+                    <option value="문화및역사">문화및역사</option>
+                    <option value="도시관광">도시관광</option>
+                    <option value="레저및액티비티">레저및액티비티</option>
+                    <option value="맛집탐방">맛집탐방</option>
+                    <option value="힐링및휴식">힐링및휴식</option>
+                    <option value="가족여행">가족여행</option>
+                    <option value="로맨틱여행">로맨틱여행</option>
+                    <option value="호캉스여행">호캉스여행</option>
+                </select>
+            </div>
+        </div>  
 
         <!-- 결과 박스 -->
         <div class="right-box">
