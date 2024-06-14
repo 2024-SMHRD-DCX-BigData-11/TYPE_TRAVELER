@@ -583,32 +583,35 @@ select:invalid option:first-child {
     border-radius: 5px;
     box-sizing: border-box;
     font-family: 'S-CoreDream-3Light', sans-serif;
-    margin-right: 10px; /* 이메일 필드와 버튼 사이의 여백 추가 */
-    height: 40px; /* 높이를 고정하여 버튼과 맞춤 */
+    height: 40px;
+    margin-right: 10px; /* 버튼과의 여백 추가 */
+    min-width: 0; /* 입력 필드의 최소 너비를 설정 */
 }
 
 #joinContent .input-group .check-button {
-    padding: 0 15px; /* 패딩 조정 */
+    padding: 0 15px;
     font-size: 14px;
     border: 1px solid #ffcc00;
     border-radius: 5px;
     background-color: #ffcc00;
     color: #fff;
     cursor: pointer;
-    height: 40px; /* 높이를 고정하여 입력 필드와 맞춤 */
-    line-height: 40px; /* 버튼 텍스트를 중앙에 맞추기 위해 추가 */
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    white-space: nowrap; /* 텍스트 줄 바꿈 방지 */
+    flex-shrink: 0; /* 버튼 크기 고정 */
 }
 
 #joinContent label {
     display: block;
     text-align: left;
-    font-size: 14px;
+    font-weight: bold;
+    font-size: 16px;
     color: #333;
-/*     margin-left: 20px; */
+	margin-top: 20px;
     margin-bottom: 10px;
 }
 
@@ -621,7 +624,6 @@ select:invalid option:first-child {
     border-radius: 5px;
     box-sizing: border-box;
     font-family: 'S-CoreDream-3Light', sans-serif;
-    margin-bottom: 15px;
 }
 
 #joinContent .check-button {
@@ -668,7 +670,6 @@ select:invalid option:first-child {
     font-size: 14px;
     font-weight: bold;
     display: none; /* 기본값: 숨김 */
-    margin-bottom: 10px;
     padding: 0 20px; /* 좌우 패딩 추가 */
 }
 
@@ -692,23 +693,73 @@ select:invalid option:first-child {
 
 
 /* 환영 팝업 스타일 */
-#welcomeContent h2 {
-    font-size: 24px;
-    color: #0fb0ff;
+#welcomeModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
 }
 
-#welcomeContent p {
-    font-size: 18px;
+#welcomeContent {
+    text-align: center;
+    padding: 0; /* 패딩 제거 */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 550px;
+    width: 100%;
+    margin: auto;
+    padding-bottom: 20px; /* 하단 패딩 추가 */
+}
+
+.welcome-header {
+    width: 100%;
+    height: 55px;
+    background-color: #ffcc00;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* 왼쪽 정렬로 수정 */
+    border-radius: 10px 10px 0 0;
+    padding: 0 10px; /* 왼쪽과 오른쪽 여백 추가 */
+    box-sizing: border-box;
+    margin-bottom: 20px; /* 아래 여백 추가 */
+}
+
+.welcome-header img {
+    height: 50px; /* 로고 높이 조정 */
+}
+
+#welcomeContent h2 {
+    font-size: 45px;
+    color: #ffcc00;
+}
+
+#welcomeMessage {
+    font-size: 17px;
     margin: 20px 0;
+    color: #000000;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+#additionalMessage {
+    font-size: 14px;
+    margin: 20px 0;
+    color: #777777; /* 색상을 회색으로 설정 */
     font-family: 'S-CoreDream-3Light', sans-serif;
 }
 
 #welcomeContent button {
-    width: calc(100% - 40px);
+    width: calc(100% - 60px);
     padding: 10px;
     font-size: 16px;
     color: white;
-    background-color: #0fb0ff;
+    background-color: #ffcc00;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -718,5 +769,6 @@ select:invalid option:first-child {
 }
 
 #welcomeContent button:hover {
-    background-color: #007bb5;
+    background-color: #d9ad00;
 }
+
