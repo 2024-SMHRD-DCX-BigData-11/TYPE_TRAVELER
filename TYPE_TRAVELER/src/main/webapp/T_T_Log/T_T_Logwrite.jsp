@@ -13,7 +13,7 @@
             align-items: center;
         }
 
-        .file-label input[type="file"] {
+        .file-label input[t ype="file"] {
             display: none;
         }
 

@@ -12,6 +12,7 @@
 
     <!-- T_T 상단 배너 -->
     <%@ include file="../T_T_Main/T_T_Main_Banner.jsp" %>
+    
     <div class="container">
         <div class="sidebar">
             <a href="#">커뮤니티</a>
