@@ -4,13 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>TYPE TRAVELER_일정관리</title>
+<title>TYPE TRAVELER_여행정보</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/T_T_Main/css/Main_styles.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/T_T_Schedule/css/Schedule_styles.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/T_T_Info/css/Info_styles.css">
 </head>
 <body>
    <!-- T_T 상단 배너 -->
     <%@ include file="../T_T_Main/T_T_Main_Banner.jsp" %>
-
 </body>
 </html>

@@ -54,7 +54,7 @@
         <img src="${pageContext.request.contextPath}/T_T_Main/images/로고.png" alt="Logo">
         <ul class="nav-menu">
             <li><a href="${pageContext.request.contextPath}/T_T_Main/T_T_Main.jsp">HOME</a></li>
-            <li><a href="${pageContext.request.contextPath}/T_T_Main/Info.jsp">여행정보</a></li>
+            <li><a href="${pageContext.request.contextPath}/T_T_Info/T_T_Info.jsp">여행정보</a></li>
             <li><a href="${pageContext.request.contextPath}/T_T_Schedule/T_T_Schedule.jsp">일정관리</a></li>
             <li>
                 <a>커뮤니티</a>
