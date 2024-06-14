@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>T_T_Schedule.jsp</title>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/T_T_Main/css/Main_styles.css">
+<%-- <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/T_T_Main/css/Main_styles.css"> --%>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/T_T_Schedule/css/Schedule_styles.css">
 <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css' rel='stylesheet' />
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js'></script>
@@ -17,7 +17,9 @@
     <%@ include file="../T_T_Main/T_T_Main_Banner.jsp" %>
 
     <!-- 캘린더를 표시할 div 입니다 -->
-    <div id='calendar'></div>
+    <div id="cc">
+        <%@ include file="../T_T_Main/calendar.html" %>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

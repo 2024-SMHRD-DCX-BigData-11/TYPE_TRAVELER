@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>T_T_Main_Banner.jsp</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/T_T_Main/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/T_T_Main/css/Main_styles.css">
 </head>
 <body>
     <div class="header">
