@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>T_T_Schedule.jsp</title>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/T_T_Main/css/main_styles.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/T_T_Schedule/css/schedule_styles.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/T_T_Main/css/Main_styles.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/T_T_Schedule/css/Schedule_styles.css">
 </head>
 <body>
 

@@ -5,22 +5,22 @@
 <head>
     <meta charset="UTF-8">
     <title>T_T_Main.jsp</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/T_T_Main/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/T_T_Main/css/Main_styles.css">
 
 </head>
 <body>
-   <!-- T_T 상단 배너 -->
+    <!-- T_T 상단 배너 -->
     <%@ include file="T_T_Main_Banner.jsp" %>
     
-<!-- 배너 아래 검색창 -->
-<div class="main-content">
-    <div class="search-container">
-        <input type="text" id="searchQuery" placeholder="검색어를 입력하세요" onkeypress="handleKeyPress(event)" />
-        <div class="search-icon-container">
-            <img src="${pageContext.request.contextPath}/T_T_Main/images/Freepik_0fb0ff.png" class="search-icon" onclick="search()" />
-        </div>
-    </div>
-</div>
+	<!-- 배너 아래 검색창 -->
+	<div class="main-content">
+	    <div class="search-container">
+	        <input type="text" id="searchQuery" placeholder="검색어를 입력하세요" onkeypress="handleKeyPress(event)" />
+	        <div class="search-icon-container">
+	            <img src="${pageContext.request.contextPath}/T_T_Main/images/Freepik_0fb0ff.png" class="search-icon" onclick="search()" />
+	        </div>
+	    </div>
+	</div>
 
     <script type="text/javascript">
         function search() {
