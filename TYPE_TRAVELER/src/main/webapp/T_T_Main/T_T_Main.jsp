@@ -21,7 +21,8 @@
 	        </div>
 	    </div>
 	</div>
-
+	
+	<!-- 검색창 script -->
     <script type="text/javascript">
         function search() {
             var query = document.getElementById('searchQuery').value;
