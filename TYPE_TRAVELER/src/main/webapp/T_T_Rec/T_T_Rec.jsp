@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8"">
+<meta charset="UTF-8">
 <title>TYPE TRAVELER_T_T 모집</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/T_T_Main/css/Main_styles.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/T_T_Rec/css/Rec_styles.css">
