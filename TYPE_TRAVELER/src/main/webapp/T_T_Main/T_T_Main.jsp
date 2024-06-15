@@ -6,23 +6,28 @@
     <meta charset="UTF-8">
     <title>TYPE TRAVELER</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/T_T_Main/css/Main_styles.css">
-
+    <style>
+        #map {
+            width: 100%;
+            height: 500px; /* 높이를 적절하게 설정하세요 */
+        }
+    </style>
 </head>
 <body>
     <!-- T_T 상단 배너 -->
     <%@ include file="T_T_Main_Banner.jsp" %>
     
-	<!-- 배너 아래 검색창 -->
-	<div class="main-content">
-	    <div class="search-container">
-	        <input type="text" id="searchQuery" placeholder="검색어를 입력하세요" onkeypress="handleKeyPress(event)" />
-	        <div class="search-icon-container">
-	            <img src="${pageContext.request.contextPath}/T_T_Main/images/Freepik_0fb0ff.png" class="search-icon" onclick="search()" />
-	        </div>
-	    </div>
-	</div>
-	
-	<!-- 검색창 script -->
+    <!-- 배너 아래 검색창 -->
+    <div class="main-content">
+        <div class="search-container">
+            <input type="text" id="searchQuery" placeholder="검색어를 입력하세요" onkeypress="handleKeyPress(event)" />
+            <div class="search-icon-container">
+                <img src="${pageContext.request.contextPath}/T_T_Main/images/Freepik_0fb0ff.png" class="search-icon" onclick="search()" />
+            </div>
+        </div>
+    </div>
+    
+    <!-- 검색창 script -->
     <script type="text/javascript">
         function search() {
             var query = document.getElementById('searchQuery').value;
@@ -39,15 +44,50 @@
         }
     </script>
 
-
-    
-    <!-- 지도 -->
     <!-- 지도와 필터, 결과 영역 -->
     <div class="content-container">
         <!-- 지도 -->
         <div id="map"></div>
-        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ac06d1eb96a82f15c5e3eb479f6eadaf"></script>
-        <script src="map.js"></script>
+        <script type="text/javascript">
+            (function(d, s) {
+                var js = d.createElement(s), sc = d.getElementsByTagName(s)[0];
+                js.src = "//dapi.kakao.com/v2/maps/sdk.js?appkey=ac06d1eb96a82f15c5e3eb479f6eadaf&autoload=false";
+                sc.parentNode.insertBefore(js, sc);
+                js.onload = function() {
+                    kakao.maps.load(function() {
+                        var mapContainer = document.getElementById('map'); 
+                        var mapOption = { 
+                            center: new kakao.maps.LatLng(36.5, 127.5), // 한반도 중앙으로 설정
+                            level: 13 // 초기 확대 레벨
+                        }; 
+                        var map = new kakao.maps.Map(mapContainer, mapOption);
+
+                        // 클릭된 마커를 저장할 변수
+                        var currentMarker = null;
+
+                        // 클릭 이벤트를 등록합니다.
+                        kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+                            // 클릭한 위치의 좌표를 가져옵니다.
+                            var latlng = mouseEvent.latLng;
+
+                            // 클릭된 마커가 있으면 지도에서 제거합니다.
+                            if (currentMarker) {
+                                currentMarker.setMap(null);
+                            }
+
+                            // 새로운 마커를 생성하여 지도에 표시합니다.
+                            currentMarker = new kakao.maps.Marker({
+                                position: latlng,
+                                map: map
+                            });
+
+                            // 클릭한 마커의 위치로 지도를 이동합니다.
+                            map.panTo(latlng);
+                        });
+                    });
+                };
+            })(document, 'script');
+        </script>
 
         <!-- STEP 필터 박스 -->
         <div id="central-box" class="central-box">
@@ -100,7 +140,7 @@
                 </select>
             </div>
             
-                        <!-- step3 -->
+            <!-- step3 -->
             <div class="step">
                 <label for="category">STEP 3</label> <br>
                 <select id="category" name="category">
@@ -122,98 +162,93 @@
         <div class="right-box">
             <div class="content">
                 <div id="hashtag">#전체</div>
-                <!-- <div class="line"></div> -->
                 <div class="package">
-    				<img src="" alt="장소 이미지" class="image">
-    					<div class="element">
-        					<div class="title"></div>
-        					<div class="address"></div>
-        					<div class="explanation"></div>
-        					<div class="keywords"></div>
-    					</div>
-					</div> 
-       			<div class="line"></div>
-                
-                <div class="package">
-    				<img src="" alt="장소 이미지" class="image">
-    					<div class="element">
-        					<div class="title"></div>
-        					<div class="address"></div>
-        					<div class="explanation"></div>
-        					<div class="keywords"></div>
-    					</div>
-					</div> 
+                    <img src="" alt="장소 이미지" class="image">
+                    <div class="element">
+                        <div class="title"></div>
+                        <div class="address"></div>
+                        <div class="explanation"></div>
+                        <div class="keywords"></div>
+                    </div>
+                </div> 
                 <div class="line"></div>
                 
                 <div class="package">
-    				<img src="" alt="장소 이미지" class="image">
-    					<div class="element">
-        					<div class="title"></div>
-        					<div class="address"></div>
-        					<div class="explanation"></div>
-        					<div class="keywords"></div>
-    					</div>
-					</div> 
-				<div class="line"></div>
-			
+                    <img src="" alt="장소 이미지" class="image">
+                    <div class="element">
+                        <div class="title"></div>
+                        <div class="address"></div>
+                        <div class="explanation"></div>
+                        <div class="keywords"></div>
+                    </div>
+                </div> 
+                <div class="line"></div>
+                
                 <div class="package">
-    				<img src="" alt="장소 이미지" class="image">
-    					<div class="element">
-        					<div class="title"></div>
-        					<div class="address"></div>
-        					<div class="explanation"></div>
-        					<div class="keywords"></div>
-    					</div>
-					</div> 
-            	<div class="line"></div>
+                    <img src="" alt="장소 이미지" class="image">
+                    <div class="element">
+                        <div class="title"></div>
+                        <div class="address"></div>
+                        <div class="explanation"></div>
+                        <div class="keywords"></div>
+                    </div>
+                </div> 
+                <div class="line"></div>
             
-            <div class="indicator">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            </div>
+                <div class="package">
+                    <img src="" alt="장소 이미지" class="image">
+                    <div class="element">
+                        <div class="title"></div>
+                        <div class="address"></div>
+                        <div class="explanation"></div>
+                        <div class="keywords"></div>
+                    </div>
+                </div> 
+                <div class="line"></div>
             
-            <footer>
-                <button id="button" onclick="window.location.href='${pageContext.request.contextPath}/T_T_Main/T_T_Main.jsp'">
-                    <span class="black-text">나와 같은 MBTI지만,</span> 
-                    <span class="highlight-text">다른 여행지</span> 
-                    <span class="black-text">추천이 궁금하다면?</span>
-                </button>
-            </footer>
-            
-            <!-- hover script -->
-            <script>
-        		document.addEventListener('DOMContentLoaded', (event) => {
-            		const button = document.getElementById('button');
-            		const yellowText = document.querySelector('.highlight-text');
+                <div class="indicator">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+                
+                <footer>
+                    <button id="button" onclick="window.location.href='${pageContext.request.contextPath}/T_T_Main/T_T_Main.jsp'">
+                        <span class="black-text">나와 같은 MBTI지만,</span> 
+                        <span class="highlight-text">다른 여행지</span> 
+                        <span class="black-text">추천이 궁금하다면?</span>
+                    </button>
+                </footer>
+                
+                <!-- hover script -->
+                <script>
+                    document.addEventListener('DOMContentLoaded', (event) => {
+                        const button = document.getElementById('button');
+                        const yellowText = document.querySelector('.highlight-text');
 
-            		button.addEventListener('mouseover', () => {
-                		yellowText.classList.add('hover');
-            		});
+                        button.addEventListener('mouseover', () => {
+                            yellowText.classList.add('hover');
+                        });
 
-            		button.addEventListener('mouseout', () => {
-                		yellowText.classList.remove('hover');
-            		});
-        		});
-    		</script>
-
+                        button.addEventListener('mouseout', () => {
+                            yellowText.classList.remove('hover');
+                        });
+                    });
+                </script>
             </div>
         </div>
-        
-    </div>  <!-- 사각형 세 개 묶는 div -->
-    
-	<div id="calendar-container">
-	    <%@ include file="calendar.html" %>
-	</div>
-
-    
-    <div id="maker-container">
-    	<div id="maker"><span>ⓒ TYPE_TRAVELER</span></div>
     </div>
-    
-     <!-- 로그인 상태 확인 및 배너 업데이트 script 추가 -->
+
+    <div id="calendar-container">
+        <%@ include file="calendar.html" %>
+    </div>
+
+    <div id="maker-container">
+        <div id="maker"><span>ⓒ TYPE_TRAVELER</span></div>
+    </div>
+
+    <!-- 로그인 상태 확인 및 배너 업데이트 script 추가 -->
     <script>
-        // 페이지 로드 시 로그인 상태 확인 및 배너 업데이트
         function updateBanner() {
             const isLoggedIn = sessionStorage.getItem('isLoggedIn');
             const username = sessionStorage.getItem('username');
@@ -223,24 +258,17 @@
                 document.getElementById('loginButton').href = '${pageContext.request.contextPath}/T_T_Main/T_T_Mypage.jsp';
                 document.getElementById('registerButton').textContent = '로그아웃';
                 document.getElementById('registerButton').href = '#';
-                document.getElementById('registerButton').onclick = logout; // 로그아웃 함수 연결
+                document.getElementById('registerButton').onclick = logout;
             }
         }
 
-        // 로그아웃 함수
         function logout() {
-            // 세션에서 로그인 상태 제거
             sessionStorage.removeItem('isLoggedIn');
             sessionStorage.removeItem('username');
-            // 메인 페이지로 이동
             window.location.href = '${pageContext.request.contextPath}/T_T_Main/T_T_Main.jsp';
         }
 
-        // 페이지 로드 시 배너 업데이트 함수 호출
         window.onload = updateBanner;
     </script>
-    
-
-
 </body>
 </html>
