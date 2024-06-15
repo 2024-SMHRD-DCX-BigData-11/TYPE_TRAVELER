@@ -191,12 +191,11 @@
                     });
                 });
             </script>
-
             </div>
         </div>
         
-    </div>  <!-- 사각형 세 개 묶는 div -->
-    
+        
+    </div>  <!-- 사각형 세 개 묶는 div -->   
     <div id="calendar-container">
         <%@ include file="calendar.html" %>
     </div>

@@ -278,11 +278,11 @@
     		}
 
     // 비밀번호가 맞다면 폼 데이터를 처리 (여기서는 콘솔에 출력)
-    console.log('프로필 수정:', {
-        newPassword: document.getElementById('newPassword').value,
-        name: document.getElementById('name').value,
-        mbti: document.getElementById('mbti').value,
-    });
+    	console.log('프로필 수정:', {
+        	newPassword: document.getElementById('newPassword').value,
+        	name: document.getElementById('name').value,
+        	mbti: document.getElementById('mbti').value,
+    	});
 
     // 모달 닫기
     closeMyPageModal();

@@ -774,7 +774,6 @@ select:invalid option:first-child {
 
 
 /* 마이페이지 모달 스타일 */
-/* 마이페이지 모달 스타일 */
 #myPageModal {
     display: none; /* 기본적으로 숨김 */
     position: fixed; /* 고정 위치 */
@@ -794,7 +793,7 @@ select:invalid option:first-child {
     background-color: #ffffff;
     padding: 0;
     border: 1px solid #888;
-    width: 400px; /* 너비 조정 */
+    width: 580px; /* 너비 조정 */
     height: auto;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     border-radius: 10px;
@@ -826,6 +825,12 @@ select:invalid option:first-child {
     cursor: pointer;
 }
 
+#myPageContent h2 {
+    font-size: 35px;
+    margin-tom: 10px;
+    margin-bottom: -5px;
+}
+
 .profile-header .close:hover,
 .profile-header .close:focus {
     color: #ffcc00;
@@ -843,6 +848,7 @@ select:invalid option:first-child {
     color: #333;
     margin-top: 10px;
     margin-bottom: 5px;
+    margin-left: 20px;
 }
 
 #myPageContent input[type="text"],
@@ -867,6 +873,7 @@ select:invalid option:first-child {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 20px;
+    margin-bottom: 30px;
     font-weight: bold;
     font-family: 'S-CoreDream-3Light', sans-serif;
 }
