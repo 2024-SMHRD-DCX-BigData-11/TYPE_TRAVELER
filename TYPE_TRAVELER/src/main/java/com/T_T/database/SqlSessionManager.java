@@ -1,4 +1,4 @@
-package com.smhrd.database;
+package com.T_T.database;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -11,7 +11,7 @@ public class SqlSessionManager {
 	public static SqlSessionFactory sqlSessionFactory;
 
 	static {
-		String resource = "com/smhrd/database/mybatis-config.xml"; 		
+		String resource = "com/T_T/database/mybatis-config.xml"; 		
 		Reader reader;
 		try {
 			reader = Resources.getResourceAsReader(resource);
