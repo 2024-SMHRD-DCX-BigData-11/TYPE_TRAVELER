@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -164,6 +163,7 @@
                 <div id="hashtag">#전체</div>
                 <div class="package">
                     <img src="" alt="장소 이미지" class="image">
+<<<<<<< HEAD
                     <div class="element">
                         <div class="title"></div>
                         <div class="address"></div>
@@ -171,10 +171,20 @@
                         <div class="keywords"></div>
                     </div>
                 </div> 
+=======
+                        <div class="element">
+                            <div class="title"></div>
+                            <div class="address"></div>
+                            <div class="explanation"></div>
+                            <div class="keywords"></div>
+                        </div>
+                    </div> 
+>>>>>>> branch 'main' of https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER.git
                 <div class="line"></div>
                 
                 <div class="package">
                     <img src="" alt="장소 이미지" class="image">
+<<<<<<< HEAD
                     <div class="element">
                         <div class="title"></div>
                         <div class="address"></div>
@@ -182,10 +192,20 @@
                         <div class="keywords"></div>
                     </div>
                 </div> 
+=======
+                        <div class="element">
+                            <div class="title"></div>
+                            <div class="address"></div>
+                            <div class="explanation"></div>
+                            <div class="keywords"></div>
+                        </div>
+                    </div> 
+>>>>>>> branch 'main' of https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER.git
                 <div class="line"></div>
                 
                 <div class="package">
                     <img src="" alt="장소 이미지" class="image">
+<<<<<<< HEAD
                     <div class="element">
                         <div class="title"></div>
                         <div class="address"></div>
@@ -193,6 +213,26 @@
                         <div class="keywords"></div>
                     </div>
                 </div> 
+=======
+                        <div class="element">
+                            <div class="title"></div>
+                            <div class="address"></div>
+                            <div class="explanation"></div>
+                            <div class="keywords"></div>
+                        </div>
+                    </div> 
+                <div class="line"></div>
+            
+                <div class="package">
+                    <img src="" alt="장소 이미지" class="image">
+                        <div class="element">
+                            <div class="title"></div>
+                            <div class="address"></div>
+                            <div class="explanation"></div>
+                            <div class="keywords"></div>
+                        </div>
+                    </div> 
+>>>>>>> branch 'main' of https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER.git
                 <div class="line"></div>
             
                 <div class="package">
@@ -206,6 +246,7 @@
                 </div> 
                 <div class="line"></div>
             
+<<<<<<< HEAD
                 <div class="indicator">
                     <div class="circle"></div>
                     <div class="circle"></div>
@@ -225,20 +266,63 @@
                     document.addEventListener('DOMContentLoaded', (event) => {
                         const button = document.getElementById('button');
                         const yellowText = document.querySelector('.highlight-text');
+=======
+            <footer>
+                <button id="button" onclick="window.location.href='${pageContext.request.contextPath}/T_T_Main/T_T_Main.jsp'">
+                    <span class="black-text">나와 같은 MBTI지만,</span> 
+                    <span class="highlight-text">다른 여행지</span> 
+                    <span class="black-text">추천이 궁금하다면?</span>
+                </button>
+            </footer>
+            
+            <!-- hover script -->
+            <script>
+                document.addEventListener('DOMContentLoaded', (event) => {
+                    const button = document.getElementById('button');
+                    const yellowText = document.querySelector('.highlight-text');
+>>>>>>> branch 'main' of https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER.git
 
+<<<<<<< HEAD
                         button.addEventListener('mouseover', () => {
                             yellowText.classList.add('hover');
                         });
+=======
+                    button.addEventListener('mouseover', () => {
+                        yellowText.classList.add('hover');
+                    });
+>>>>>>> branch 'main' of https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER.git
 
+<<<<<<< HEAD
                         button.addEventListener('mouseout', () => {
                             yellowText.classList.remove('hover');
                         });
                     });
                 </script>
+=======
+                    button.addEventListener('mouseout', () => {
+                        yellowText.classList.remove('hover');
+                    });
+                });
+            </script>
+>>>>>>> branch 'main' of https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER.git
             </div>
         </div>
+<<<<<<< HEAD
+=======
+        
+        
+    </div>  <!-- 사각형 세 개 묶는 div -->   
+    <div id="calendar-container">
+        <%@ include file="calendar.html" %>
     </div>
 
+    
+    <div id="maker-container">
+        <div id="maker"><span>ⓒ TYPE_TRAVELER</span></div>
+>>>>>>> branch 'main' of https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER.git
+    </div>
+
+<<<<<<< HEAD
     <div id="calendar-container">
         <%@ include file="calendar.html" %>
     </div>
@@ -248,6 +332,9 @@
     </div>
 
     <!-- 로그인 상태 확인 및 배너 업데이트 script 추가 -->
+=======
+    <!-- 페이지 로드 시 로그인 상태 확인 및 배너 업데이트 script 추가 -->
+>>>>>>> branch 'main' of https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER.git
     <script>
         function updateBanner() {
             const isLoggedIn = sessionStorage.getItem('isLoggedIn');
@@ -255,7 +342,8 @@
 
             if (isLoggedIn === 'true') {
                 document.getElementById('loginButton').textContent = '마이페이지';
-                document.getElementById('loginButton').href = '${pageContext.request.contextPath}/T_T_Main/T_T_Mypage.jsp';
+                document.getElementById('loginButton').href = 'javascript:void(0);';
+                document.getElementById('loginButton').onclick = openMyPageModal;
                 document.getElementById('registerButton').textContent = '로그아웃';
                 document.getElementById('registerButton').href = '#';
                 document.getElementById('registerButton').onclick = logout;
@@ -270,5 +358,9 @@
 
         window.onload = updateBanner;
     </script>
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'main' of https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER.git
 </body>
 </html>
