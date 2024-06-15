@@ -127,6 +127,7 @@
                     <input type="text" id="joinEmail" name="email" placeholder="사용하실 이메일을 입력해 주세요." required>
                     <button type="button" class="check-button" onclick="checkEmail()">중복 확인</button>
                 </div>
+                <span class="success-message" id="emailsuccess"></span>
                 <span class="error-message" id="emailError"></span>
                 
                 <label for="joinPassword">비밀번호</label>
@@ -147,35 +148,71 @@
         </div>
     </div>
   
-    <!-- 회원가입 script -->
-    <script>
-        function openJoinModal() {
-            document.getElementById('joinModal').style.display = 'flex';
-        }
-        
-        function closeJoinModal() {
-            document.getElementById('joinModal').style.display = 'none';
-            document.getElementById('emailError').style.display = 'none'; // 에러 메시지 숨기기
-            document.getElementById('emailError').textContent = ''; // 에러 메시지 초기화
-            document.getElementById('joinForm').reset(); // 폼 초기화
-        }
-        
-        // 이메일 중복 확인 함수
-        function checkEmail() {
-            var email = document.getElementById('joinEmail').value;
-            var emailError = document.getElementById('emailError');
-            // 여기서 이메일 중복 확인 로직을 추가하세요.
-            // 예: AJAX 요청을 사용하여 서버에서 이메일 중복 확인
-            
-            // ex. 에러 메시지 표시
-            if (email === "opo226@naver.com") {
-                emailError.style.display = 'block';
-                emailError.textContent = '이미 사용 중인 이메일입니다.';
-            } else {
-                emailError.style.display = 'none';
-                emailError.textContent = '';
-            }
-        }
+		<!-- 회원가입 script -->
+		<script>
+		    function openJoinModal() {
+		        document.getElementById('joinModal').style.display = 'flex';
+		    }
+		    
+		    function closeJoinModal() {
+		        document.getElementById('joinModal').style.display = 'none';
+		        document.getElementById('emailError').style.display = 'none'; // 에러 메시지 숨기기
+		        document.getElementById('emailError').textContent = ''; // 에러 메시지 초기화
+		        document.getElementById('emailsuccess').style.display = 'none'; // 성공 메시지 숨기기
+		        document.getElementById('emailsuccess').textContent = ''; // 성공 메시지 초기화
+		        document.getElementById('joinForm').reset(); // 폼 초기화
+		    }
+		    
+		    // 이메일 중복 확인 함수
+		    function checkEmail() {
+		        var email = document.getElementById('joinEmail').value;
+		        var emailError = document.getElementById('emailError');
+		        var emailSuccess = document.getElementById('emailsuccess');
+		        // 여기서 이메일 중복 확인 로직을 추가하세요.
+		        // 예: AJAX 요청을 사용하여 서버에서 이메일 중복 확인
+		        
+		        // ex. 에러 메시지 표시
+		        if (email === "opo226@naver.com") {
+		            emailError.style.display = 'block';
+		            emailError.textContent = '이미 사용 중인 이메일입니다.';
+		            emailSuccess.style.display = 'none';
+		            emailSuccess.textContent = '';
+		        } else {
+		            emailError.style.display = 'none';
+		            emailError.textContent = '';
+		            emailSuccess.style.display = 'block';
+		            emailSuccess.textContent = '사용 가능한 이메일입니다.';
+		        }
+		    }
+		    
+		    // 회원가입 성공했을 때 함수
+		    function submitJoinForm() {
+		        var email = document.getElementById('joinEmail').value;
+		        var password = document.getElementById('joinPassword').value;
+		        var name = document.getElementById('joinName').value;
+		        var mbti = document.getElementById('joinMBTI').value;
+		        
+		        // 실제 회원가입 로직을 추가
+		        // 예시로 회원가입이 성공했다고 가정
+		        var isSuccess = true; // 이 부분을 실제 로직으로 변경
+		    
+		        if (isSuccess) {
+		            document.getElementById('joinModal').style.display = 'none';
+		            document.getElementById('welcomeMessage').innerHTML = `${name}님, 회원가입을 축하합니다.<br>가입하신 이메일은 ${email} 입니다.`;
+		            document.getElementById('welcomeModal').style.display = 'flex';
+		        } else {
+		            // 회원가입 실패 처리 로직 추가
+		        }
+		    }
+		    
+		    // 모달이 열릴 때마다 초기화
+		    document.getElementById('joinModal').addEventListener('show', function() {
+		        document.getElementById('emailError').style.display = 'none';
+		        document.getElementById('emailError').textContent = '';
+		        document.getElementById('emailsuccess').style.display = 'none';
+		        document.getElementById('emailsuccess').textContent = '';
+		        document.getElementById('joinForm').reset();
+		    });
         
         // 회원가입 성공했을 때 함수
         function submitJoinForm() {
