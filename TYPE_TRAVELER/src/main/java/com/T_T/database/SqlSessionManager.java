@@ -17,7 +17,7 @@ public class SqlSessionManager {
 			reader = Resources.getResourceAsReader(resource);
 			//SqlSessionFactory : SqlSession(db연결, Sql 실행, 트랜잭션 관리) 생성
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
-		} catch (IOException e) {
+		} catch (IOException e) {	
 			e.printStackTrace();
 		}
 	}

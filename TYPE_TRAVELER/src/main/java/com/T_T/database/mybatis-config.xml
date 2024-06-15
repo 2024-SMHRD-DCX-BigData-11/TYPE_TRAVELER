@@ -8,7 +8,7 @@
 	<!-- db.properties 파일 연결하기 -->
 	<properties resource="com/T_T/database/db.properties" />
 	
-	<typeAliases>
+	<typeAliases>	
 		<typeAlias type="com.T_T.model.Member" alias="Member"/>
 	</typeAliases>
 

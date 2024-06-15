@@ -17,7 +17,7 @@ public class LoginCon extends HttpServlet {
 
         Member member = new Member(email, pw); // email과 pw만으로 Member 객체 생성
 
-        Member login_member = new MemberDAO().login(member);
+        Member login_member = new MemberDAO().login(member);	
 
         if (login_member != null) {
             // 로그인 성공

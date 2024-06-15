@@ -21,5 +21,5 @@ public class Member {
     @NonNull
     private String pw;
     private String name;
-    private String mbti;
+    private String mbti;	
 }
