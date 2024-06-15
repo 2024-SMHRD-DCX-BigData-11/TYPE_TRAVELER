@@ -5,7 +5,12 @@
     <meta charset="UTF-8">
     <title>TYPE TRAVELER</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/T_T_Main/css/Main_styles.css">
-
+    <style>
+        #map {
+            width: 100%;
+            height: 500px; /* 높이를 적절하게 설정하세요 */
+        }
+    </style>
 </head>
 <body>
     <!-- T_T 상단 배너 -->
@@ -43,43 +48,71 @@
         <!-- 지도 -->
         <div id="map"></div>
         <script type="text/javascript">
+            function loadKakaoMap() {
+                var mapContainer = document.getElementById('map'); 
+                var mapOption = { 
+                    center: new kakao.maps.LatLng(36.5, 127.5), // 한반도 중앙으로 설정
+                    level: 13 // 초기 확대 레벨
+                }; 
+                var map = new kakao.maps.Map(mapContainer, mapOption);
+
+                // 클릭된 마커를 저장할 변수
+                var currentMarker = null;
+
+                // 주소-좌표 변환 객체를 생성합니다.
+                var geocoder = new kakao.maps.services.Geocoder();
+
+                // 클릭 이벤트를 등록합니다.
+                kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+                    // 클릭한 위치의 좌표를 가져옵니다.
+                    var latlng = mouseEvent.latLng;
+
+                    // 클릭된 마커가 있으면 지도에서 제거합니다.
+                    if (currentMarker) {
+                        currentMarker.setMap(null);
+                    }
+
+                    // 새로운 마커를 생성하여 지도에 표시합니다.
+                    currentMarker = new kakao.maps.Marker({
+                        position: latlng,
+                        map: map
+                    });
+
+                    // 클릭한 마커의 위치로 지도를 이동합니다.
+                    map.panTo(latlng);
+
+                    // 좌표로 행정 구역 정보를 요청합니다.
+                    geocoder.coord2RegionCode(latlng.getLng(), latlng.getLat(), function(result, status) {
+                        if (status === kakao.maps.services.Status.OK) {
+                            for (var i = 0; i < result.length; i++) {
+                                // 행정 구역 정보를 찾습니다.
+                                if (result[i].region_type === 'H') {
+                                    // 선택 박스를 업데이트합니다.
+                                    var regionSelect = document.getElementById('region');
+                                    var regionName = result[i].region_1depth_name + " " + result[i].region_2depth_name;
+
+                                    for (var j = 0; j < regionSelect.options.length; j++) {
+                                        if (regionSelect.options[j].text === result[i].region_1depth_name || regionSelect.options[j].text === result[i].region_2depth_name) {
+                                            regionSelect.selectedIndex = j;
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                }
+                            }
+                        }
+                    });
+                });
+            }
+
             (function(d, s) {
                 var js = d.createElement(s), sc = d.getElementsByTagName(s)[0];
-                js.src = "//dapi.kakao.com/v2/maps/sdk.js?appkey=ac06d1eb96a82f15c5e3eb479f6eadaf&autoload=false";
-                sc.parentNode.insertBefore(js, sc);
+                js.src = "//dapi.kakao.com/v2/maps/sdk.js?appkey=ac06d1eb96a82f15c5e3eb479f6eadaf&autoload=false&libraries=services";
+                js.async = true;
                 js.onload = function() {
-                    kakao.maps.load(function() {
-                        var mapContainer = document.getElementById('map'); 
-                        var mapOption = { 
-                            center: new kakao.maps.LatLng(36.5, 127.5), // 한반도 중앙으로 설정
-                            level: 13 // 초기 확대 레벨
-                        }; 
-                        var map = new kakao.maps.Map(mapContainer, mapOption);
-
-                        // 클릭된 마커를 저장할 변수
-                        var currentMarker = null;
-
-                        // 클릭 이벤트를 등록합니다.
-                        kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
-                            // 클릭한 위치의 좌표를 가져옵니다.
-                            var latlng = mouseEvent.latLng;
-
-                            // 클릭된 마커가 있으면 지도에서 제거합니다.
-                            if (currentMarker) {
-                                currentMarker.setMap(null);
-                            }
-
-                            // 새로운 마커를 생성하여 지도에 표시합니다.
-                            currentMarker = new kakao.maps.Marker({
-                                position: latlng,
-                                map: map
-                            });
-
-                            // 클릭한 마커의 위치로 지도를 이동합니다.
-                            map.panTo(latlng);
-                        });
-                    });
+                    kakao.maps.load(loadKakaoMap);
                 };
+                sc.parentNode.insertBefore(js, sc);
             })(document, 'script');
         </script>
 
