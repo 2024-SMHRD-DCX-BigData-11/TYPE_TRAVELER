@@ -1,4 +1,4 @@
-package com.T_T.database;
+package com.T_T.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class JoinCon
+ * Servlet implementation class DeleteCon
  */
-@WebServlet("/JoinCon")
-public class JoinCon extends HttpServlet {
+@WebServlet("/DeleteCon")
+public class DeleteCon extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
