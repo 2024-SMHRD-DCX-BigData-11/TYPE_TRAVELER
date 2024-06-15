@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,17 +11,17 @@
     <!-- T_T 상단 배너 -->
     <%@ include file="T_T_Main_Banner.jsp" %>
     
-	<!-- 배너 아래 검색창 -->
-	<div class="main-content">
-	    <div class="search-container">
-	        <input type="text" id="searchQuery" placeholder="검색어를 입력하세요" onkeypress="handleKeyPress(event)" />
-	        <div class="search-icon-container">
-	            <img src="${pageContext.request.contextPath}/T_T_Main/images/Freepik_0fb0ff.png" class="search-icon" onclick="search()" />
-	        </div>
-	    </div>
-	</div>
-	
-	<!-- 검색창 script -->
+    <!-- 배너 아래 검색창 -->
+    <div class="main-content">
+        <div class="search-container">
+            <input type="text" id="searchQuery" placeholder="검색어를 입력하세요" onkeypress="handleKeyPress(event)" />
+            <div class="search-icon-container">
+                <img src="${pageContext.request.contextPath}/T_T_Main/images/Freepik_0fb0ff.png" class="search-icon" onclick="search()" />
+            </div>
+        </div>
+    </div>
+    
+    <!-- 검색창 script -->
     <script type="text/javascript">
         function search() {
             var query = document.getElementById('searchQuery').value;
@@ -39,9 +38,6 @@
         }
     </script>
 
-
-    
-    <!-- 지도 -->
     <!-- 지도와 필터, 결과 영역 -->
     <div class="content-container">
         <!-- 지도 -->
@@ -100,7 +96,7 @@
                 </select>
             </div>
             
-                        <!-- step3 -->
+            <!-- step3 -->
             <div class="step">
                 <label for="category">STEP 3</label> <br>
                 <select id="category" name="category">
@@ -122,50 +118,49 @@
         <div class="right-box">
             <div class="content">
                 <div id="hashtag">#전체</div>
-                <!-- <div class="line"></div> -->
                 <div class="package">
-    				<img src="" alt="장소 이미지" class="image">
-    					<div class="element">
-        					<div class="title"></div>
-        					<div class="address"></div>
-        					<div class="explanation"></div>
-        					<div class="keywords"></div>
-    					</div>
-					</div> 
-       			<div class="line"></div>
-                
-                <div class="package">
-    				<img src="" alt="장소 이미지" class="image">
-    					<div class="element">
-        					<div class="title"></div>
-        					<div class="address"></div>
-        					<div class="explanation"></div>
-        					<div class="keywords"></div>
-    					</div>
-					</div> 
+                    <img src="" alt="장소 이미지" class="image">
+                        <div class="element">
+                            <div class="title"></div>
+                            <div class="address"></div>
+                            <div class="explanation"></div>
+                            <div class="keywords"></div>
+                        </div>
+                    </div> 
                 <div class="line"></div>
                 
                 <div class="package">
-    				<img src="" alt="장소 이미지" class="image">
-    					<div class="element">
-        					<div class="title"></div>
-        					<div class="address"></div>
-        					<div class="explanation"></div>
-        					<div class="keywords"></div>
-    					</div>
-					</div> 
-				<div class="line"></div>
-			
+                    <img src="" alt="장소 이미지" class="image">
+                        <div class="element">
+                            <div class="title"></div>
+                            <div class="address"></div>
+                            <div class="explanation"></div>
+                            <div class="keywords"></div>
+                        </div>
+                    </div> 
+                <div class="line"></div>
+                
                 <div class="package">
-    				<img src="" alt="장소 이미지" class="image">
-    					<div class="element">
-        					<div class="title"></div>
-        					<div class="address"></div>
-        					<div class="explanation"></div>
-        					<div class="keywords"></div>
-    					</div>
-					</div> 
-            	<div class="line"></div>
+                    <img src="" alt="장소 이미지" class="image">
+                        <div class="element">
+                            <div class="title"></div>
+                            <div class="address"></div>
+                            <div class="explanation"></div>
+                            <div class="keywords"></div>
+                        </div>
+                    </div> 
+                <div class="line"></div>
+            
+                <div class="package">
+                    <img src="" alt="장소 이미지" class="image">
+                        <div class="element">
+                            <div class="title"></div>
+                            <div class="address"></div>
+                            <div class="explanation"></div>
+                            <div class="keywords"></div>
+                        </div>
+                    </div> 
+                <div class="line"></div>
             
             <div class="indicator">
             <div class="circle"></div>
@@ -183,35 +178,35 @@
             
             <!-- hover script -->
             <script>
-        		document.addEventListener('DOMContentLoaded', (event) => {
-            		const button = document.getElementById('button');
-            		const yellowText = document.querySelector('.highlight-text');
+                document.addEventListener('DOMContentLoaded', (event) => {
+                    const button = document.getElementById('button');
+                    const yellowText = document.querySelector('.highlight-text');
 
-            		button.addEventListener('mouseover', () => {
-                		yellowText.classList.add('hover');
-            		});
+                    button.addEventListener('mouseover', () => {
+                        yellowText.classList.add('hover');
+                    });
 
-            		button.addEventListener('mouseout', () => {
-                		yellowText.classList.remove('hover');
-            		});
-        		});
-    		</script>
+                    button.addEventListener('mouseout', () => {
+                        yellowText.classList.remove('hover');
+                    });
+                });
+            </script>
 
             </div>
         </div>
         
     </div>  <!-- 사각형 세 개 묶는 div -->
     
-	<div id="calendar-container">
-	    <%@ include file="calendar.html" %>
-	</div>
+    <div id="calendar-container">
+        <%@ include file="calendar.html" %>
+    </div>
 
     
     <div id="maker-container">
-    	<div id="maker"><span>ⓒ TYPE_TRAVELER</span></div>
+        <div id="maker"><span>ⓒ TYPE_TRAVELER</span></div>
     </div>
-    
-     <!-- 로그인 상태 확인 및 배너 업데이트 script 추가 -->
+
+    <!-- 페이지 로드 시 로그인 상태 확인 및 배너 업데이트 script 추가 -->
     <script>
         // 페이지 로드 시 로그인 상태 확인 및 배너 업데이트
         function updateBanner() {
@@ -220,7 +215,8 @@
 
             if (isLoggedIn === 'true') {
                 document.getElementById('loginButton').textContent = '마이페이지';
-                document.getElementById('loginButton').href = '${pageContext.request.contextPath}/T_T_Main/T_T_Mypage.jsp';
+                document.getElementById('loginButton').href = 'javascript:void(0);';
+                document.getElementById('loginButton').onclick = openMyPageModal;
                 document.getElementById('registerButton').textContent = '로그아웃';
                 document.getElementById('registerButton').href = '#';
                 document.getElementById('registerButton').onclick = logout; // 로그아웃 함수 연결
@@ -239,8 +235,6 @@
         // 페이지 로드 시 배너 업데이트 함수 호출
         window.onload = updateBanner;
     </script>
-    
-
 
 </body>
 </html>
