@@ -17,9 +17,17 @@ import lombok.ToString;
 
 public class Member {
     @NonNull
-    private String email;
+    private String user_email;
     @NonNull
-    private String pw;
-    private String name;
-    private String mbti;	
+    private String user_pw;
+    @NonNull
+    private String user_name;
+    @NonNull
+    private String user_mbti;	
+    
+    
+    public Member(String user_email, String user_pw) {
+        this.user_email = user_email;
+        this.user_pw = user_pw;
+    }
 }

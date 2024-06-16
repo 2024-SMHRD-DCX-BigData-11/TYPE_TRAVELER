@@ -25,96 +25,73 @@
         </ul>
     </div>
 
-    <!-- 로그인 팝업 -->
-    <div id="loginModal" style="display: none;">
-        <div id="loginContent">
-            <div class="login-header">
-                <img src="${pageContext.request.contextPath}/T_T_Main/images/로고.png" alt="Logo">
-                <span class="close" onclick="closeLoginModal()">&times;</span>
-            </div>
-            <form id="loginForm" action="T_T_Main.jsp" method="post" onsubmit="submitForm(event)">
-                <input type="text" id="useremail" name="useremail" placeholder="이메일" required>
-                <input type="password" id="password" name="password" placeholder="비밀번호" required>
-                <div id="errorMessage" class="error-message" style="display: none;"></div>
-                <button type="submit" class="login-button">로그인</button>
-            </form>
+<!-- 로그인 모달 -->
+<div id="loginModal" style="display: none;">
+    <div id="loginContent">
+        <div class="login-header">
+            <img src="${pageContext.request.contextPath}/T_T_Main/images/로고.png" alt="Logo">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
         </div>
+        <form id="loginForm" action="${pageContext.request.contextPath}/LoginCon" method="post">
+            <input type="text" id="useremail" name="email" placeholder="이메일" required>
+            <input type="password" id="password" name="pw" placeholder="비밀번호" required>
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+            <button type="submit" class="login-button">로그인</button>
+        </form>
     </div>
-  
-    <!-- 로그인 팝업 script -->
-    <script>
-        function openLoginModal() {
-            document.getElementById("loginModal").style.display = "flex";
-        }
+</div>
 
-        // 로그인 팝업 닫기 및 폼 초기화
-        function closeLoginModal() {
-            document.getElementById("loginModal").style.display = "none";
-            resetLoginForm();
-        }
+	<script>
+	function openLoginModal() {
+	    const modal = document.getElementById("loginModal");
+	    modal.style.display = "flex";
+	    setTimeout(() => {
+	        modal.style.transform = "translateY(0)";
+	        modal.style.opacity = "1";
+	    }, 50);
+	}
+    
+	function closeLoginModal() {
+	    const modal = document.getElementById("loginModal");
+	    const loginContent = document.getElementById("loginContent");
 
-        // 로그인 폼 초기화
-        function resetLoginForm() {
-            document.getElementById("loginForm").reset();
-            document.getElementById("errorMessage").style.display = "none";
-        }
+	    loginContent.style.animation = "modal-slide-down 0.7s ease-out forwards";
 
-        // 오류 메시지 표시
-        function displayErrorMessage(message) {
-            var errorMessage = document.getElementById("errorMessage");
-            errorMessage.innerText = message;
-            errorMessage.style.display = "block";
-        }
+	    setTimeout(() => {
+	        modal.style.display = "none";
+	        resetLoginForm();
+	        loginContent.style.animation = ""; // 다음 열릴 때를 위해 애니메이션 초기화
+	    }, 700);
+	}
 
-        // 폼 제출 처리 (예시용)
-        function submitForm(event) {
-            event.preventDefault(); // 폼 제출 방지
+	function resetLoginForm() {
+	    document.getElementById("loginForm").reset();
+	    document.getElementById("errorMessage").style.display = "none";
+	}
 
-            var email = document.getElementById("useremail").value;
-            var password = document.getElementById("password").value;
+	function validateLoginForm() {
+	    const email = document.getElementById("useremail").value;
+	    const password = document.getElementById("password").value;
+	    if (email === "" || password === "") {
+	        document.getElementById("errorMessage").innerText = "이메일 또는 비밀번호를 입력해주세요.";
+	        document.getElementById("errorMessage").style.display = "block";
+	        return false;
+	    }
+	    return true;
+	}
 
-            // 이메일과 비밀번호 확인 (예시용)
-            if (email !== "opo226@naver.com" || password !== "123") {
-                displayErrorMessage("이메일 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.");
-            } else {
-                // 로그인 성공 시 세션에 로그인 상태 저장
-                sessionStorage.setItem('isLoggedIn', 'true');
-                sessionStorage.setItem('username', email); // 사용자 이름 저장
-                // 페이지 로드 시 로그인 상태 확인 및 배너 업데이트
-                updateBanner(); 
-                closeLoginModal();
-            }
-        }
-
-        // 페이지 로드 시 로그인 상태 확인 및 배너 업데이트
-        function updateBanner() {
-            const isLoggedIn = sessionStorage.getItem('isLoggedIn');
-            const username = sessionStorage.getItem('username');
-
-            if (isLoggedIn === 'true') {
-                document.getElementById('loginButton').textContent = '마이페이지';
-                document.getElementById('loginButton').href = 'javascript:void(0);';
-                document.getElementById('loginButton').onclick = openMyPageModal;
-                document.getElementById('registerButton').textContent = '로그아웃';
-                document.getElementById('registerButton').href = '#';
-                document.getElementById('registerButton').onclick = logout; // 로그아웃 함수 연결
-            }
-        }
-
-        // 로그아웃 함수
-        function logout() {
-            // 세션에서 로그인 상태 제거
-            sessionStorage.removeItem('isLoggedIn');
-            sessionStorage.removeItem('username');
-            // 메인 페이지로 이동
-            window.location.href = '${pageContext.request.contextPath}/T_T_Main/T_T_Main.jsp';
-        }
-
-        // 페이지 로드 시 배너 업데이트 함수 호출
-        window.onload = updateBanner;
-    </script>
-
-    <!-- 회원가입 팝업 -->
+	window.onload = function() {
+	    const params = new URLSearchParams(window.location.search);
+	    if (params.has('loginError')) {
+	        document.getElementById("errorMessage").innerText = "이메일 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.";
+	        document.getElementById("errorMessage").style.display = "block";
+	        openLoginModal();
+	    }
+	}
+	
+	</script>
+	
+	    <!-- 회원가입 팝업 -->
     <div id="joinModal" style="display: none;">
         <div id="joinContent">
             <div class="join-header">
@@ -150,18 +127,32 @@
   
 		<!-- 회원가입 script -->
 		<script>
-		    function openJoinModal() {
-		        document.getElementById('joinModal').style.display = 'flex';
-		    }
+		function openJoinModal() {
+		    const modal = document.getElementById("joinModal");
+		    const joinContent = document.getElementById("joinContent");
 		    
-		    function closeJoinModal() {
-		        document.getElementById('joinModal').style.display = 'none';
+		    modal.style.display = "flex";
+		    setTimeout(() => {
+		        joinContent.style.animation = "modal-slide-up 0.7s ease-out forwards";
+		    }, 50); // 약간의 딜레이 추가
+		}
+
+		function closeJoinModal() {
+		    const modal = document.getElementById("joinModal");
+		    const joinContent = document.getElementById("joinContent");
+
+		    joinContent.style.animation = "modal-slide-down 0.7s ease-out forwards";
+
+		    setTimeout(() => {
+		        modal.style.display = "none";
+		        joinContent.style.animation = ""; // 다음 열릴 때를 위해 애니메이션 초기화
 		        document.getElementById('emailError').style.display = 'none'; // 에러 메시지 숨기기
 		        document.getElementById('emailError').textContent = ''; // 에러 메시지 초기화
 		        document.getElementById('emailsuccess').style.display = 'none'; // 성공 메시지 숨기기
 		        document.getElementById('emailsuccess').textContent = ''; // 성공 메시지 초기화
 		        document.getElementById('joinForm').reset(); // 폼 초기화
-		    }
+		    }, 700); // 애니메이션 시간과 동일한 시간 지연
+		}
 		    
 		    // 이메일 중복 확인 함수
 		    function checkEmail() {
@@ -214,26 +205,6 @@
 		        document.getElementById('joinForm').reset();
 		    });
         
-        // 회원가입 성공했을 때 함수
-        function submitJoinForm() {
-            var email = document.getElementById('joinEmail').value;
-            var password = document.getElementById('joinPassword').value;
-            var name = document.getElementById('joinName').value;
-            var mbti = document.getElementById('joinMBTI').value;
-            
-            // 실제 회원가입 로직을 추가
-            // 예시로 회원가입이 성공했다고 가정
-            var isSuccess = true; // 이 부분을 실제 로직으로 변경
-        
-            if (isSuccess) {
-                document.getElementById('joinModal').style.display = 'none';
-                document.getElementById('welcomeMessage').innerHTML = `${name}님, 회원가입을 축하합니다.<br>가입하신 이메일은 ${email} 입니다.`;
-                document.getElementById('welcomeModal').style.display = 'flex';
-            } else {
-                // 회원가입 실패 처리 로직 추가
-            }
-        }
-        
         // 환영 팝업으로 이동
         function goToMain() {
             window.location.href = '${pageContext.request.contextPath}/T_T_Main/T_T_Main.jsp';
@@ -247,7 +218,7 @@
         });
     </script>
   
-    <!-- 환영 팝업 -->
+    <!-- 환영 모달 -->
     <div id="welcomeModal" style="display: none;">
         <div id="welcomeContent">
             <div class="welcome-header">
@@ -325,6 +296,6 @@
     closeMyPageModal();
 }
     </script>
-
+	
 </body>
 </html>

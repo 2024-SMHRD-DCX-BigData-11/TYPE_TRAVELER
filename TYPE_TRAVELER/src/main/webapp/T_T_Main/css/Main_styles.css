@@ -379,7 +379,7 @@ select:invalid option:first-child {
     width: 100%;
     height: 100%;
     overflow: auto; /* 필요 시 스크롤 가능 */
-    background-color: rgba(0,0,0,0.4); /* 반투명 검정 배경 */
+	background-color: rgba(0,0,0,0.4); /* 반투명 검정 배경 */
     justify-content: center;
     align-items: center;
     display: flex; /* 콘텐츠 가운데 정렬 */
@@ -395,6 +395,29 @@ select:invalid option:first-child {
     border-radius: 10px;
     text-align: center;
     position: relative;
+    animation: modal-slide-up 0.7s ease-out forwards; /* 모달이 나타날 때의 애니메이션 */
+}
+
+@keyframes modal-slide-up {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes modal-slide-down {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100%);
+        opacity: 0;
+    }
 }
 
 .login-header {
@@ -515,7 +538,6 @@ select:invalid option:first-child {
     background-color: rgba(0,0,0,0.4); /* 반투명 검정 배경 */
     justify-content: center;
     align-items: center;
-    display: flex; /* 콘텐츠 가운데 정렬 */
 }
 
 #joinContent {
@@ -528,6 +550,32 @@ select:invalid option:first-child {
     border-radius: 10px;
     text-align: center;
     position: relative;
+    transform: translateY(100%); /* 초기 위치 설정 */
+    animation: modal-slide-up 0.7s ease-out forwards; /* 모달이 나타날 때의 애니메이션 */
+}
+
+/* 슬라이드 업 애니메이션 */
+@keyframes modal-slide-up {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 슬라이드 다운 애니메이션 */
+@keyframes modal-slide-down {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100%);
+        opacity: 0;
+    }
 }
 
 .join-header {
@@ -715,6 +763,7 @@ select:invalid option:first-child {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
+    animation: fadeIn 0.5s ease-out forwards; /* 페이드 인 애니메이션 */
 }
 
 #welcomeContent {
@@ -727,6 +776,33 @@ select:invalid option:first-child {
     width: 100%;
     margin: auto;
     padding-bottom: 20px; /* 하단 패딩 추가 */
+    animation: zoomInOut 0.5s ease-out forwards; /* 확대/축소 애니메이션 */
+}
+
+/* 페이드 인 애니메이션 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* 확대/축소 애니메이션 */
+@keyframes zoomInOut {
+    0% {
+        transform: scale(0.8); /* 초기 크기의 80%로 시작 */
+        opacity: 0; /* 투명도 0으로 시작 */
+    }
+    50% {
+        transform: scale(1.1); /* 크기 110%로 확대 */
+        opacity: 1; /* 투명도 100% */
+    }
+    100% {
+        transform: scale(1); /* 원래 크기로 돌아옴 */
+        opacity: 1; /* 투명도 100% */
+    }
 }
 
 .welcome-header {
