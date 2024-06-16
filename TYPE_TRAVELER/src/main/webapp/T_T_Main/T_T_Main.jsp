@@ -268,14 +268,11 @@
             </script>
             </div>
         </div>
-        
-        
-    </div>  <!-- 사각형 세 개 묶는 div -->   
+    </div> <!-- 사각형 세 개 묶는 div -->
     <div id="calendar-container">
         <%@ include file="calendar.html" %>
     </div>
 
-    
     <div id="maker-container">
         <div id="maker"><span>ⓒ TYPE_TRAVELER</span></div>
     </div>
@@ -307,7 +304,16 @@
         }
 
         // 페이지 로드 시 배너 업데이트 함수 호출
-        window.onload = updateBanner;
+        window.onload = function() {
+            updateBanner();
+
+            const params = new URLSearchParams(window.location.search);
+            if (params.has('loginError')) {
+                document.getElementById("errorMessage").style.display = "block";
+                document.getElementById("errorMessage").innerText = "이메일 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.";
+                openLoginModal();
+            }
+        };
     </script>
 
 </body>

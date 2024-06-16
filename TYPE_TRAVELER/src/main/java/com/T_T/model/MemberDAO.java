@@ -7,16 +7,23 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.T_T.database.SqlSessionManager;
 
-
 public class MemberDAO {
-	
+
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	
-    public Member login(Member member) {
-        SqlSession session = sqlSessionFactory.openSession(true);
-        Member login_member = session.selectOne("com.T_T.database.MemberMapper.login", member);
-        session.close();
-        return login_member;
-	}	
+	public int join(Member member) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt = session.insert("com.smhrd.T_T.MemberMapper.join", member);
+		session.close();
+		return cnt;
+	}
 
+	public Member login(Member member) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		Member login_member = session.selectOne("com.T_T.database.MemberMapper.login", member);
+		session.close();
+		return login_member;
+	}
+		
+	
 }

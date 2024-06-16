@@ -24,7 +24,7 @@ public class JoinCon extends HttpServlet {
 
         Member member = new Member(email, pw, name, mbti); // 모든 필드를 포함하여 Member 객체 생성
 
-        int cnt = new MemberDAO().join(member);	
+/*        int cnt = new MemberDAO().join(member);	
 
         if (cnt == 1) {
             System.out.println("회원가입 성공!");
@@ -33,7 +33,7 @@ public class JoinCon extends HttpServlet {
             rd.forward(request, response);
         } else {
             System.out.println("회원가입 실패..");
-        }
+        }  */
 
         return "T_T_Main.jsp";
     }

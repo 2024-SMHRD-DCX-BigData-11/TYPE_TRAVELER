@@ -13,7 +13,6 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor // 모든 필드를 포함하는 생성자
 @NoArgsConstructor  // 기본 생성자
-@RequiredArgsConstructor // NonNull 필드를 포함하는 생성자
 
 public class Member {
     @NonNull
@@ -23,9 +22,9 @@ public class Member {
     @NonNull
     private String user_name;
     @NonNull
-    private String user_mbti;	
+    private String user_mbti;  
     
-    
+    // 필요한 경우 특정 생성자 직접 정의
     public Member(String user_email, String user_pw) {
         this.user_email = user_email;
         this.user_pw = user_pw;

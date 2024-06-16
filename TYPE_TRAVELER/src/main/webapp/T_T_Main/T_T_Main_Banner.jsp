@@ -1,4 +1,7 @@
+<%@page import="com.T_T.model.Member"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,9 +36,9 @@
             <span class="close" onclick="closeLoginModal()">&times;</span>
         </div>
         <form id="loginForm" action="${pageContext.request.contextPath}/LoginCon" method="post">
-            <input type="text" id="useremail" name="email" placeholder="이메일" required>
-            <input type="password" id="password" name="pw" placeholder="비밀번호" required>
-            <div id="errorMessage" class="error-message" style="display: none;"></div>
+            <input type="text" id="useremail" name="user_email" placeholder="이메일" required>
+            <input type="password" id="password" name="user_pw" placeholder="비밀번호" required>
+            <div id="errorMessage" class="error-message" style="display: none;">이메일 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.</div>
             <button type="submit" class="login-button">로그인</button>
         </form>
     </div>
@@ -83,15 +86,14 @@
 	window.onload = function() {
 	    const params = new URLSearchParams(window.location.search);
 	    if (params.has('loginError')) {
-	        document.getElementById("errorMessage").innerText = "이메일 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.";
 	        document.getElementById("errorMessage").style.display = "block";
 	        openLoginModal();
 	    }
-	}
+	};
 	
 	</script>
 	
-	    <!-- 회원가입 팝업 -->
+    <!-- 회원가입 팝업 -->
     <div id="joinModal" style="display: none;">
         <div id="joinContent">
             <div class="join-header">
