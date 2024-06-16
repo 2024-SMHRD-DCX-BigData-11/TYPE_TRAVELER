@@ -92,7 +92,11 @@
                                     var regionName = result[i].region_1depth_name + " " + result[i].region_2depth_name;
 
                                     for (var j = 0; j < regionSelect.options.length; j++) {
-                                        if (regionSelect.options[j].text === result[i].region_1depth_name || regionSelect.options[j].text === result[i].region_2depth_name) {
+                                        // 현재 옵션 텍스트와 행정구역 정보를 비교하여 선택
+                                        if (regionSelect.options[j].text === result[i].region_1depth_name || 
+                                            regionSelect.options[j].text === result[i].region_2depth_name ||
+                                            (result[i].region_1depth_name === "강원특별자치도" && regionSelect.options[j].text === "강원특별자치도") ||
+                                            (result[i].region_1depth_name === "전북특별자치도" && regionSelect.options[j].text === "전북특별자치도")) {
                                             regionSelect.selectedIndex = j;
                                             break;
                                         }
@@ -132,10 +136,10 @@
                     <option value="울산광역시">울산광역시</option>
                     <option value="세종특별자치시">세종특별자치시</option>
                     <option value="경기도">경기도</option>
-                    <option value="강원도">강원도</option>
+                    <option value="강원특별자치도">강원특별자치도</option>
                     <option value="충청북도">충청북도</option>
                     <option value="충청남도">충청남도</option>
-                    <option value="전라북도">전라북도</option>
+                    <option value="전북특별자치도">전북특별자치도</option>
                     <option value="전라남도">전라남도</option>
                     <option value="경상북도">경상북도</option>
                     <option value="경상남도">경상남도</option>
