@@ -7,9 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class UpdateCon
- */
 @WebServlet("/UpdateCon")
 public class UpdateCon extends HttpServlet {
 	private static final long serialVersionUID = 1L;

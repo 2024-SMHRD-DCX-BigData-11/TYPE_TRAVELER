@@ -277,7 +277,7 @@
         <div id="maker"><span>ⓒ TYPE_TRAVELER</span></div>
     </div>
 
-    <!-- 페이지 로드 시 로그인 상태 확인 및 배너 업데이트 script 추가 -->
+<!--     페이지 로드 시 로그인 상태 확인 및 배너 업데이트 script 추가
     <script>
         // 페이지 로드 시 로그인 상태 확인 및 배너 업데이트
         function updateBanner() {
@@ -314,7 +314,7 @@
                 openLoginModal();
             }
         };
-    </script>
+    </script> -->
 
 </body>
 </html>

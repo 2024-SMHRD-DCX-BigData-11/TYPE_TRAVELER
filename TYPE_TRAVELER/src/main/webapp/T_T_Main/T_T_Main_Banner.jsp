@@ -1,6 +1,7 @@
-<%@page import="com.T_T.model.Member"%>
-<%@page import="java.util.ArrayList"%>
+<%@ page import="com.T_T.model.Member"%>
+<%@ page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html>
@@ -23,8 +24,16 @@
                     <li><a href="${pageContext.request.contextPath}/T_T_Log/T_T_Log.jsp">여행기록</a></li>
                 </ul>
             </li>
-            <li><a href="javascript:void(0);" onclick="openLoginModal()" id="loginButton">로그인</a></li>
-            <li><a href="javascript:void(0);" onclick="openJoinModal()" id="registerButton">회원가입</a></li>
+	        <c:choose>
+	            <c:when test="${empty sessionScope.memberInfo}">
+	                <li><a href="javascript:void(0);" onclick="openLoginModal()" id="loginButton">로그인</a></li>
+	                <li><a href="javascript:void(0);" onclick="openJoinModal()" id="registerButton">회원가입</a></li>
+	            </c:when>
+	            <c:otherwise>
+	                <li><a href="javascript:void(0);" onclick="openMyPageModal()" id="MypageButton">마이페이지</a></li>
+	                <li><a href="${pageContext.request.contextPath}/LogoutCon">로그아웃</a></li>
+	            </c:otherwise>
+	        </c:choose>
         </ul>
     </div>
 
@@ -233,48 +242,62 @@
         </div>
     </div>
 
-    <!-- 마이페이지 모달 -->
-    <div id="myPageModal" style="display: none;">
-        <div id="myPageContent">
-            <div class="profile-header">
-                <img src="${pageContext.request.contextPath}/T_T_Main/images/로고.png" alt="Logo">
-                <span class="close" onclick="closeMyPageModal()">&times;</span>
-            </div>
-            <h2>프로필</h2>
-            <p id="userEmail"></p>
-            <form id="profileForm" onsubmit="updateProfile(event)">
-                <label for="currentPassword">현재 비밀번호</label>
-                <input type="password" id="currentPassword" name="currentPassword" placeholder="현재 비밀번호" required>
-                <div id="passwordErrorMessage" class="error-message" style="display: none; color: red; font-weight: bold; margin-bottom: 10px;">비밀번호를 정확하게 입력해 주세요.</div>
-                
-                <label for="newPassword">변경할 비밀번호</label>
-                <input type="password" id="newPassword" name="newPassword" placeholder="변경할 비밀번호">
-                
-                <label for="name">이름</label>
-                <input type="text" id="name" name="name" value="홍길동" required>
-                
-                <label for="mbti">MBTI</label>
-                <input type="text" id="mbti" name="mbti" value="INTJ" required>
-                
-                <button type="submit" class="update-button">프로필 수정</button>
-            </form>
-        </div>
-    </div>
+		<!-- 마이페이지 모달 -->
+		<div id="myPageModal" style="display: none;">
+		    <div id="myPageContent">
+		        <div class="profile-header">
+		            <img src="${pageContext.request.contextPath}/T_T_Main/images/로고.png" alt="Logo">
+		            <span class="close" onclick="closeMyPageModal()">&times;</span>
+		        </div>
+		        <h2>프로필</h2>
+		        <p id="userEmail"></p>
+		        <p id="userEmail">${sessionScope.memberInfo.user_email}</p>
+		        <form id="profileForm" onsubmit="updateProfile(event)">
+		            <label for="currentPassword">현재 비밀번호</label>
+		            <input type="password" id="currentPassword" name="currentPassword" placeholder="현재 비밀번호" required>
+		            <div id="passwordErrorMessage" class="password-error-message" style="display: none; color: red; font-weight: bold; margin-bottom: 10px;">비밀번호를 정확하게 입력해 주세요.</div>
+		            
+		            <label for="newPassword">변경할 비밀번호</label>
+		            <input type="password" id="newPassword" name="newPassword" placeholder="변경할 비밀번호">
+		            
+		            <label for="name">이름</label>
+		            <input type="text" id="name" name="name" value="${sessionScope.memberInfo.user_name}" required> <!-- 세션에서 사용자 이름 가져오기 -->
+		            
+		            <label for="mbti">MBTI</label>
+		            <input type="text" id="mbti" name="mbti" value="${sessionScope.memberInfo.user_mbti}" required> <!-- 세션에서 사용자 MBTI 가져오기 -->
+		            
+		            <button type="submit" class="update-button">프로필 수정</button>
+		        </form>
+		    </div>
+		</div>
+
 
     <script>
     	// 마이페이지 모달 열기 함수
         function openMyPageModal() {
-            const username = sessionStorage.getItem('username');
-            document.querySelector('#myPageModal #userEmail').innerText = username;
-            document.getElementById('myPageModal').style.display = 'flex';
-        }
-		
-    	// 마이페이지 모달 닫기 및 폼 초기화
-        function closeMyPageModal() {
-            document.getElementById('myPageModal').style.display = 'none';
-            document.getElementById('profileForm').reset(); // 폼 초기화
-            document.getElementById('passwordErrorMessage').style.display = 'none'; // 에러 메시지 숨기기
-        }
+		    const username = sessionStorage.getItem('username');
+		    document.querySelector('#myPageModal #userEmail').innerText = username;
+		    const modal = document.getElementById('myPageModal');
+		    modal.style.display = 'flex';
+		    setTimeout(() => {
+		        modal.querySelector('#myPageContent').classList.add('slide-up');
+		    }, 50); // 약간의 지연 후 애니메이션 시작
+		}
+
+		// 마이페이지 모달 닫기 및 폼 초기화
+		function closeMyPageModal() {
+		    const modal = document.getElementById('myPageModal');
+		    const content = modal.querySelector('#myPageContent');
+		    content.classList.remove('slide-up');
+		    content.classList.add('slide-down');
+		    setTimeout(() => {
+		        modal.style.display = 'none';
+		        content.classList.remove('slide-down');
+		        document.getElementById('profileForm').reset(); // 폼 초기화
+		        document.getElementById('passwordErrorMessage').style.display = 'none'; // 에러 메시지 숨기기
+		    }, 700); // 애니메이션 지속 시간과 일치
+		}
+
 		
     	// 프로필 수정 처리
         function updateProfile(event) {

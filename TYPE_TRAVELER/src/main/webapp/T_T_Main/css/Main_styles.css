@@ -869,7 +869,43 @@ select:invalid option:first-child {
     border-radius: 10px;
     text-align: center;
     position: relative;
+    transform: translateY(100%); /* 초기 위치 설정 */
+    opacity: 0;
 }
+
+/* 슬라이드 업 애니메이션 */
+@keyframes modal-slide-up {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 슬라이드 다운 애니메이션 */
+@keyframes modal-slide-down {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+/* 클래스 추가로 애니메이션 트리거 */
+.slide-up {
+    animation: modal-slide-up 0.7s ease-out forwards;
+}
+
+.slide-down {
+    animation: modal-slide-down 0.7s ease-out forwards;
+}
+
 
 .profile-header {
     width: 100%;
@@ -900,6 +936,13 @@ select:invalid option:first-child {
     margin-tom: 10px;
     margin-bottom: -5px;
 }
+
+#userEmail {
+    font-size: 16px; /* 글자 크기 */
+    color: #777; /* 글자 색상 */
+    margin: 10px 0; /* 상하 여백 */
+}
+
 
 .profile-header .close:hover,
 .profile-header .close:focus {
@@ -950,4 +993,13 @@ select:invalid option:first-child {
 
 .update-button:hover {
     background-color: #007bb5;
+}
+
+.password-error-message {
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    display: none; /* 기본값: 숨김 */
+    text-align: center;
+    margin: px auto;
 }

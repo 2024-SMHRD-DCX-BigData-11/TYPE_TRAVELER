@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import com.T_T.model.Member;
 import com.T_T.model.MemberDAO;
+import com.T_T.model.MemberDTO;
 
 @WebServlet("/LoginCon")
 public class LoginCon extends HttpServlet {
@@ -28,10 +29,19 @@ public class LoginCon extends HttpServlet {
 		Member login_member = new MemberDAO().login(member);
 
         if (login_member != null) {
-            // 로그인 성공
+        	// 로그인 성공
             HttpSession session = request.getSession();
-            session.setAttribute("member", login_member);
+            
+         // Member 정보에서 비밀번호를 제외하고 MemberDTO 객체를 생성
+            MemberDTO memberDTO = new MemberDTO(
+                login_member.getUser_email(),
+                login_member.getUser_name(),
+                login_member.getUser_mbti()
+            );
+
+            session.setAttribute("memberInfo", memberDTO); // 세션에 MemberDTO 객체 저장
             response.sendRedirect(request.getContextPath() + "/T_T_Main/T_T_Main.jsp"); // 메인 페이지로 리디렉션
+          
         } else {
             // 로그인 실패
         	// 로그인 실패

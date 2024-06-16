@@ -29,4 +29,6 @@ public class Member {
         this.user_email = user_email;
         this.user_pw = user_pw;
     }
+    
+    
 }
