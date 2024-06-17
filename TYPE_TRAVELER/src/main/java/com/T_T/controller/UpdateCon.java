@@ -64,7 +64,7 @@ public class UpdateCon extends HttpServlet {
             // 메인 페이지로 리디렉션
             response.sendRedirect(request.getContextPath() + "/T_T_Main/T_T_Main.jsp");
         } else {
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to update profile.");
+        	response.sendRedirect(request.getContextPath() + "/T_T_Main/T_T_Main.jsp");
         }
     }
 }
