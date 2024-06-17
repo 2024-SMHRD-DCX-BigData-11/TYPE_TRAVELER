@@ -49,7 +49,7 @@ body, html {
 }
 
 .nav-menu a {
-    color: white;
+    color: white !important; /* 강제로 흰색으로 설정 */
     text-decoration: none;
     font-size: 17px;
     font-weight: bold;
@@ -61,7 +61,7 @@ body, html {
 }
 
 .nav-menu a:hover {
-    color: #ffcc00; /* 호버 시 텍스트 색상 변경 */
+    color: #ffcc00 !important; /* 강제로 호버 시 색상 변경 */
 }
 
 .nav-menu .submenu {
@@ -84,13 +84,13 @@ body, html {
 .nav-menu .submenu a {
     padding: 10px;
     white-space: nowrap;
-    color: white;
+    color: white !important; /* 강제로 흰색으로 설정 */
     transition: color 0.3s;
     font-family: 'S-CoreDream-3Light', sans-serif;
 }
 
 .nav-menu .submenu a:hover {
-    color: #ffcc00; /* 서브메뉴 호버 시 텍스트 색상 변경 */
+    color: #ffcc00 !important; /* 서브메뉴 호버 시 텍스트 색상 변경 */
 }
 
 .nav-menu li:hover .submenu {
