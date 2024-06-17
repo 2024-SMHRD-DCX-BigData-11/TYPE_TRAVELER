@@ -12,4 +12,16 @@
         select * from tb_user where user_email=#{user_email} and user_pw=#{user_pw}
     </select>
 
+    <select id="getMemberByEmail" parameterType="String" resultType="com.T_T.model.Member">
+        select * from tb_user where user_email=#{user_email}
+    </select>
+
+    <update id="updateMember" parameterType="com.T_T.model.Member">
+        update tb_user
+        set user_pw = #{user_pw},
+            user_name = #{user_name},
+            user_mbti = #{user_mbti}
+        where user_email = #{user_email}
+    </update>
+
 </mapper>

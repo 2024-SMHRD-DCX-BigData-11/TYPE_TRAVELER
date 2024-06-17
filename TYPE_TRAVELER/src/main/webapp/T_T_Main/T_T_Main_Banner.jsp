@@ -252,7 +252,7 @@
 		        <h2>프로필</h2>
 		        <p id="userEmail"></p>
 		        <p id="userEmail">${sessionScope.memberInfo.user_email}</p>
-		        <form id="profileForm" onsubmit="updateProfile(event)">
+		        <form id="profileForm" action="${pageContext.request.contextPath}/UpdateCon" method="post" onsubmit="return validatePassword()">
 		            <label for="currentPassword">현재 비밀번호</label>
 		            <input type="password" id="currentPassword" name="currentPassword" placeholder="현재 비밀번호" required>
 		            <div id="passwordErrorMessage" class="password-error-message" style="display: none; color: red; font-weight: bold; margin-bottom: 10px;">비밀번호를 정확하게 입력해 주세요.</div>
@@ -260,16 +260,17 @@
 		            <label for="newPassword">변경할 비밀번호</label>
 		            <input type="password" id="newPassword" name="newPassword" placeholder="변경할 비밀번호">
 		            
-		            <label for="name">이름</label>
-		            <input type="text" id="name" name="name" value="${sessionScope.memberInfo.user_name}" required> <!-- 세션에서 사용자 이름 가져오기 -->
+		            <label for="user_name">이름</label>
+		            <input type="text" id="user_name" name="user_name" value="${sessionScope.memberInfo.user_name}" required> <!-- 세션에서 사용자 이름 가져오기 -->
 		            
-		            <label for="mbti">MBTI</label>
-		            <input type="text" id="mbti" name="mbti" value="${sessionScope.memberInfo.user_mbti}" required> <!-- 세션에서 사용자 MBTI 가져오기 -->
+		            <label for="user_mbti">MBTI</label>
+		            <input type="text" id="user_mbti" name="user_mbti" value="${sessionScope.memberInfo.user_mbti}" required> <!-- 세션에서 사용자 MBTI 가져오기 -->
 		            
 		            <button type="submit" class="update-button">프로필 수정</button>
 		        </form>
 		    </div>
 		</div>
+
 
 
     <script>
@@ -299,28 +300,65 @@
 		}
 
 		
-    	// 프로필 수정 처리
-        function updateProfile(event) {
-    		event.preventDefault(); // 폼 제출 방지
-    		const currentPassword = document.getElementById('currentPassword').value;
-    		const storedPassword = '123'; // 실제 구현에서는 서버에서 비밀번호를 확인해야 함
+		// 비밀번호 유효성 검사
+	    function validatePassword() {
+	        const currentPassword = document.getElementById('currentPassword').value;
+	        // 실제 구현에서는 서버에서 비밀번호를 확인해야 함
+	        // 예시: storedPassword는 서버에서 가져온 값
+	        // const storedPassword = '123';
+	        // if (currentPassword !== storedPassword) {
+	        //     document.getElementById('passwordErrorMessage').style.display = 'block';
+	        //     return false; // 폼 제출을 막음
+	        // }
+	        return true; // 폼 제출을 허용
+	    }
 
-    		if (currentPassword !== storedPassword) {
-       		 	document.getElementById('passwordErrorMessage').style.display = 'block';
-        		return;
-    		}
+	 // 프로필 수정 처리
+	    async function updateProfile(event) {
+	        event.preventDefault(); // 폼 제출 방지
 
-    // 비밀번호가 맞다면 폼 데이터를 처리 (여기서는 콘솔에 출력)
-    	console.log('프로필 수정:', {
-        	newPassword: document.getElementById('newPassword').value,
-        	name: document.getElementById('name').value,
-        	mbti: document.getElementById('mbti').value,
-    	});
+	        const currentPassword = document.getElementById('currentPassword').value;
+	        const newPassword = document.getElementById('newPassword').value;
+	        const user_name = document.getElementById('user_name').value;
+	        let user_mbti = document.getElementById('user_mbti').value.trim().toUpperCase(); // 입력값을 대문자로 변환하고 공백 제거
 
-    // 모달 닫기
-    closeMyPageModal();
-}
-    </script>
+	        // MBTI 유효성 검사: 4글자여야 하고, 대문자 알파벳만 허용
+	        const mbtiPattern = /^[A-Z]{4}$/; // 대문자 알파벳 4글자
+
+	        if (!mbtiPattern.test(user_mbti)) {
+	            alert('올바른 MBTI 유형을 입력하세요.'); // 사용자에게 알림
+	            return; // 함수 종료
+	        }
+
+	        // 서버 사이드 URL 설정
+	        const updateUrl = '/T_T_Main/UpdateCon'; // 실제 서버 사이드에서 처리될 URL
+
+	        const response = await fetch(updateUrl, {
+	            method: 'POST',
+	            headers: {
+	                'Content-Type': 'application/x-www-form-urlencoded'
+	            },
+	            body: new URLSearchParams({
+	                currentPassword: currentPassword,
+	                newPassword: newPassword,
+	                user_name: user_name,
+	                user_mbti: user_mbti
+	            })
+	        });
+
+	        const result = await response.json();
+
+	        if (result.success) {
+	            // 수정 성공 시 메인 페이지로 리디렉션
+	            window.location.href = '/T_T_Main/T_T_Main.jsp';
+	        } else {
+	            // 실패 시 에러 메시지 표시
+	            document.getElementById('passwordErrorMessage').style.display = 'block';
+	        }
+	    }
+
+
+	</script>
 	
 </body>
 </html>
