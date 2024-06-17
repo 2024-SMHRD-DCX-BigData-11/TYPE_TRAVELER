@@ -128,18 +128,24 @@
                         showInfoModal('여행 일정이 삭제되었습니다.');
                     });
                 },
+
                 eventDrop: function(info) {
-                    showInfoModal('여행 일정이 업데이트되었습니다: ' + info.event.start.toISOString().split('T')[0]);
+                    var endDate = new Date(info.event.end);
+                    endDate.setDate(endDate.getDate() - 1);
+                    showInfoModal('여행 일정이 업데이트되었습니다<br>' + info.event.start.toISOString().split('T')[0] + ' ~ ' + endDate.toISOString().split('T')[0]);
                 },
+
                 eventResize: function(info) {
-                    showInfoModal('여행 일정 종료 날짜가 업데이트되었습니다: ' + info.event.end.toISOString().split('T')[0]);
+                    var endDate = new Date(info.event.end);
+                    endDate.setDate(endDate.getDate() - 1);
+                    showInfoModal('여행 일정 종료 날짜가 업데이트되었습니다<br>' + info.event.start.toISOString().split('T')[0] + ' ~ ' + endDate.toISOString().split('T')[0]);
                 }
             });
             calendar.render();
         });
 
         function showInfoModal(message) {
-            document.getElementById('modalBody').textContent = message;
+            document.getElementById('modalBody').innerHTML = message;
             $('#infoModal').modal('show');
         }
     </script>
