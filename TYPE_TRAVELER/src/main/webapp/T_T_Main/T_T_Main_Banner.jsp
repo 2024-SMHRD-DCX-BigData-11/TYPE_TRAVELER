@@ -9,6 +9,7 @@
     <meta charset="UTF-8">
     <title>T_T_Main_Banner.jsp</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/T_T_Main/css/Main_styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
     <div class="header">
@@ -109,126 +110,32 @@
                 <img src="${pageContext.request.contextPath}/T_T_Main/images/로고.png" alt="Logo">
                 <span class="close" onclick="closeJoinModal()">&times;</span>
             </div>
-            <form id="joinForm">
+            <form id="joinForm" action="${pageContext.request.contextPath}/JoinCon" method="post">
                 <label for="joinEmail">이메일</label>
                 <div class="input-group">
-                    <input type="text" id="joinEmail" name="email" placeholder="사용하실 이메일을 입력해 주세요." required>
+                    <input type="text" id="inputEmail" name="user_email" placeholder="사용하실 이메일을 입력해 주세요." required>
                     <button type="button" class="check-button" onclick="checkEmail()">중복 확인</button>
                 </div>
-                <span class="success-message" id="emailsuccess"></span>
-                <span class="error-message" id="emailError"></span>
+                <span id="resultCheck" class="message"></span>
                 
                 <label for="joinPassword">비밀번호</label>
-                <input type="password" id="joinPassword" name="password" placeholder="사용하실 비밀번호를 입력해 주세요." required>
+                <input type="password" id="joinPassword" name="user_pw" placeholder="사용하실 비밀번호를 입력해 주세요." required>
                
                 <label for="joinName">이름</label>
-                <input type="text" id="joinName" name="name" placeholder="이름을 입력해 주세요." required>
+                <input type="text" id="joinName" name="user_name" placeholder="이름을 입력해 주세요." required>
               
                 <label for="joinMBTI">MBTI</label>
-                <input type="text" id="joinMBTI" name="mbti" placeholder="MBTI를 입력해 주세요." required>
+                <input type="text" id="joinMBTI" name="user_mbti" placeholder="MBTI를 입력해 주세요." required>
                 
                 <div class="mbti-link">
                     <span>나의 MBTI를 모른다면? </span>
                     <a href="https://www.16personalities.com/ko/%EB%AC%B4%EB%A3%8C-%EC%84%B1%EA%B2%A9-%EC%9C%A0%ED%98%95-%EA%B2%80%EC%82%AC" target="_blank">검사하기</a>
                 </div>
-                <button type="button" class="join-button" onclick="submitJoinForm()">가입하기</button>
+                <button type="submit" class="join-button">가입하기</button>
             </form>
         </div>
     </div>
-  
-		<!-- 회원가입 script -->
-		<script>
-		function openJoinModal() {
-		    const modal = document.getElementById("joinModal");
-		    const joinContent = document.getElementById("joinContent");
-		    
-		    modal.style.display = "flex";
-		    setTimeout(() => {
-		        joinContent.style.animation = "modal-slide-up 0.7s ease-out forwards";
-		    }, 50); // 약간의 딜레이 추가
-		}
-
-		function closeJoinModal() {
-		    const modal = document.getElementById("joinModal");
-		    const joinContent = document.getElementById("joinContent");
-
-		    joinContent.style.animation = "modal-slide-down 0.7s ease-out forwards";
-
-		    setTimeout(() => {
-		        modal.style.display = "none";
-		        joinContent.style.animation = ""; // 다음 열릴 때를 위해 애니메이션 초기화
-		        document.getElementById('emailError').style.display = 'none'; // 에러 메시지 숨기기
-		        document.getElementById('emailError').textContent = ''; // 에러 메시지 초기화
-		        document.getElementById('emailsuccess').style.display = 'none'; // 성공 메시지 숨기기
-		        document.getElementById('emailsuccess').textContent = ''; // 성공 메시지 초기화
-		        document.getElementById('joinForm').reset(); // 폼 초기화
-		    }, 700); // 애니메이션 시간과 동일한 시간 지연
-		}
-		    
-		    // 이메일 중복 확인 함수
-		    function checkEmail() {
-		        var email = document.getElementById('joinEmail').value;
-		        var emailError = document.getElementById('emailError');
-		        var emailSuccess = document.getElementById('emailsuccess');
-		        // 여기서 이메일 중복 확인 로직을 추가하세요.
-		        // 예: AJAX 요청을 사용하여 서버에서 이메일 중복 확인
-		        
-		        // ex. 에러 메시지 표시
-		        if (email === "opo226@naver.com") {
-		            emailError.style.display = 'block';
-		            emailError.textContent = '이미 사용 중인 이메일입니다.';
-		            emailSuccess.style.display = 'none';
-		            emailSuccess.textContent = '';
-		        } else {
-		            emailError.style.display = 'none';
-		            emailError.textContent = '';
-		            emailSuccess.style.display = 'block';
-		            emailSuccess.textContent = '사용 가능한 이메일입니다.';
-		        }
-		    }
-		    
-		    // 회원가입 성공했을 때 함수
-		    function submitJoinForm() {
-		        var email = document.getElementById('joinEmail').value;
-		        var password = document.getElementById('joinPassword').value;
-		        var name = document.getElementById('joinName').value;
-		        var mbti = document.getElementById('joinMBTI').value;
-		        
-		        // 실제 회원가입 로직을 추가
-		        // 예시로 회원가입이 성공했다고 가정
-		        var isSuccess = true; // 이 부분을 실제 로직으로 변경
-		    
-		        if (isSuccess) {
-		            document.getElementById('joinModal').style.display = 'none';
-		            document.getElementById('welcomeMessage').innerHTML = `${name}님, 회원가입을 축하합니다.<br>가입하신 이메일은 ${email} 입니다.`;
-		            document.getElementById('welcomeModal').style.display = 'flex';
-		        } else {
-		            // 회원가입 실패 처리 로직 추가
-		        }
-		    }
-		    
-		    // 모달이 열릴 때마다 초기화
-		    document.getElementById('joinModal').addEventListener('show', function() {
-		        document.getElementById('emailError').style.display = 'none';
-		        document.getElementById('emailError').textContent = '';
-		        document.getElementById('emailsuccess').style.display = 'none';
-		        document.getElementById('emailsuccess').textContent = '';
-		        document.getElementById('joinForm').reset();
-		    });
-        
-        // 환영 팝업으로 이동
-        function goToMain() {
-            window.location.href = '${pageContext.request.contextPath}/T_T_Main/T_T_Main.jsp';
-        }
-        
-        // 모달이 열릴 때마다 초기화
-        document.getElementById('joinModal').addEventListener('show', function() {
-            document.getElementById('emailError').style.display = 'none';
-            document.getElementById('emailError').textContent = '';
-            document.getElementById('joinForm').reset();
-        });
-    </script>
-  
+    
     <!-- 환영 모달 -->
     <div id="welcomeModal" style="display: none;">
         <div id="welcomeContent">
@@ -236,11 +143,109 @@
                 <img src="${pageContext.request.contextPath}/T_T_Main/images/로고.png" alt="Logo">
             </div>
             <h2>환영합니다!</h2>
-            <p id="welcomeMessage">user_name님, 회원가입을 축하합니다.<br>가입하신 이메일은 user_email 입니다.</p>
+            <p id="welcomeMessage">${sessionScope.memberInfo.user_name}님, 회원가입을 축하합니다.<br>가입하신 이메일은 ${sessionScope.memberInfo.user_email} 입니다.</p>
             <p id="additionalMessage">소중한 고객님의 정보를 안전하게 관리하겠습니다.<br>감사합니다.</p>
             <button type="button" onclick="goToMain()">출발하기</button>
         </div>
     </div>
+    
+
+<script>
+    function openJoinModal() {
+        const modal = document.getElementById("joinModal");
+        const joinContent = document.getElementById("joinContent");
+
+        modal.style.display = "flex";
+        setTimeout(() => {
+            joinContent.style.animation = "modal-slide-up 0.7s ease-out forwards";
+        }, 50); // 약간의 딜레이 추가
+    }
+
+    function closeJoinModal() {
+        const modal = document.getElementById("joinModal");
+        const joinContent = document.getElementById("joinContent");
+
+        joinContent.style.animation = "modal-slide-down 0.7s ease-out forwards";
+
+        setTimeout(() => {
+            modal.style.display = "none";
+            joinContent.style.animation = ""; // 다음 열릴 때를 위해 애니메이션 초기화
+            document.getElementById('emailError').style.display = 'none'; // 에러 메시지 숨기기
+            document.getElementById('emailError').textContent = ''; // 에러 메시지 초기화
+            document.getElementById('emailsuccess').style.display = 'none'; // 성공 메시지 숨기기
+            document.getElementById('emailsuccess').textContent = ''; // 성공 메시지 초기화
+            document.getElementById('joinForm').reset(); // 폼 초기화
+        }, 700); // 애니메이션 시간과 동일한 시간 지연
+    }
+
+    // 이메일 유효성 검사 함수
+    function isValidEmail(email) {
+        var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        return emailRegex.test(email);
+    }
+
+    function checkEmail() {
+        var inputEmail = $('#inputEmail').val();
+
+        if (!isValidEmail(inputEmail)) {
+            $('#resultCheck').text('유효하지 않은 이메일 형식입니다.').css('color', 'red');
+            return;
+        }
+
+        $.ajax({
+            url: '${pageContext.request.contextPath}/EmailCheckCon',
+            data: { 'inputEmail': inputEmail },
+            type: 'get',
+            success: function (response) {
+                if (response) {
+                    $('#resultCheck').text('이미 사용 중인 이메일입니다.').css('color', 'red');
+                } else {
+                    $('#resultCheck').text('사용 가능한 이메일입니다.').css('color', 'green');
+                }
+            },
+            error: function () {
+                alert('이메일 중복 확인 과정에서 오류가 발생했습니다.');
+            }
+        });
+    }
+
+    // 회원가입 폼 유효성 검사
+    function validateJoinForm() {
+        var userEmail = $('#inputEmail').val();
+        var userPw = $('#joinPassword').val();
+        var userName = $('#joinName').val();
+        var userMbti = $('#joinMBTI').val();
+
+        if (!isValidEmail(userEmail)) {
+            alert('유효하지 않은 이메일 형식입니다.');
+            return false;
+        }
+
+        // 추가적인 폼 유효성 검사 로직 추가 가능
+
+        return true;
+    }
+
+    // 회원가입 버튼 클릭 시 처리
+    $('#joinForm').submit(function(event) {
+        event.preventDefault(); // 기본 동작 방지
+        if (validateJoinForm()) {
+            this.submit(); // 유효성 검사 통과 시 폼 제출
+        }
+    });
+
+    // 모달이 열릴 때마다 초기화
+    $('#joinModal').on('show.bs.modal', function() {
+        $('#emailError').hide().text('');
+        $('#emailsuccess').hide().text('');
+        $('#joinForm')[0].reset();
+    });
+
+    // 환영 팝업으로 이동
+    function goToMain() {
+        window.location.href = '${pageContext.request.contextPath}/T_T_Main/T_T_Main.jsp';
+    }
+</script>
 
 		<!-- 마이페이지 모달 -->
 		<div id="myPageModal" style="display: none;">

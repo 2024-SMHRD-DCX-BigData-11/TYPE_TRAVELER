@@ -2,20 +2,19 @@ package com.T_T.model;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-
 import com.T_T.database.SqlSessionManager;
 
 public class MemberDAO {
 
     SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 
-    public int join(Member member) {
+    public boolean insertMember(Member member) {
         SqlSession session = sqlSessionFactory.openSession(true);
-        int cnt = session.insert("com.T_T.database.MemberMapper.join", member);
+        int rows = session.insert("com.T_T.database.MemberMapper.insertMember", member);
         session.close();
-        return cnt;
+        return rows > 0;
     }
-
+    
     public Member login(Member member) {
         SqlSession session = sqlSessionFactory.openSession(true);
         Member login_member = session.selectOne("com.T_T.database.MemberMapper.login", member);

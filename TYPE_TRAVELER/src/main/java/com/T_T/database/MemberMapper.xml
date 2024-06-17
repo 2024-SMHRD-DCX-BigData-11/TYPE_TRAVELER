@@ -4,8 +4,9 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.T_T.database.MemberMapper">
 
-    <insert id="join" parameterType="com.T_T.model.Member">
-        insert into tb_user(user_email, user_pw, user_name, user_mbti) values (#{user_email}, #{user_pw}, #{user_name}, #{user_mbti})
+	<insert id="insertMember" parameterType="com.T_T.model.Member">
+        insert into tb_user (user_email, user_pw, user_name, user_mbti)
+        values (#{user_email}, #{user_pw}, #{user_name}, #{user_mbti})
     </insert>
 
     <select id="login" parameterType="com.T_T.model.Member" resultType="com.T_T.model.Member">
@@ -13,7 +14,7 @@
     </select>
 
     <select id="getMemberByEmail" parameterType="String" resultType="com.T_T.model.Member">
-        select * from tb_user where user_email=#{user_email}
+        select * from tb_user where user_email = #{email}
     </select>
 
     <update id="updateMember" parameterType="com.T_T.model.Member">
