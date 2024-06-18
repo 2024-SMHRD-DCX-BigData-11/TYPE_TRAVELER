@@ -1,0 +1,234 @@
+/* 사용자 정의 폰트를 불러오는 부분 */
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* body와 html 기본 스타일 */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+    box-sizing: border-box;
+}
+
+.header {
+    position: static;
+}
+
+.travel-info {
+    padding: 10px; /* 여백 줄이기 */
+    max-width: 1400px; /* 최대 너비 줄이기 */
+    margin: 50px auto 0;  /* 위쪽 여백 조정 */
+}
+
+.travel-info h1 {
+    font-size: 27px; /* 폰트 크기 줄이기 */
+    font-weight: bold;
+    margin: 5px 0; /* 여백 조정 */
+    text-align: left;
+    padding-bottom: 10px; /* 여백 조정 */
+}
+
+.hashtags {
+    display: flex;
+    justify-content: space-evenly; /* 요소들을 가로로 고르게 배치 */
+    align-items: center;
+    margin: 10px 0; /* 여백 조정 */
+    padding: 15px; /* 여백 조정 */
+    background-color: #f1efef;
+    flex-wrap: wrap; /* 줄 바꿈 허용 */
+    text-align: center; /* 가운데 정렬 */
+}
+
+.address,
+.category,
+.mbti {
+    display: grid;
+    gap: 5px; /* 간격 줄이기 */
+    align-content: center; /* 세로 중앙 정렬 */
+    font-size: 17px; /* 해시태그 폰트 크기 줄이기 */
+    color: #000000;
+    justify-content: center; /* 가운데 정렬 */
+}
+
+.address {
+    grid-template-columns: repeat(5, 1fr); /* 5열 */
+    grid-template-rows: repeat(4, auto); /* 4행 */
+    justify-items: center; /* 가로 중앙 정렬 */
+    padding: 0 5px; /* 좌우 여백 줄이기 */
+    font-size: 17px !important; /* 폰트 크기 강제 적용 */
+    color: #000000 !important; /* 색상 강제 적용 */
+}
+
+.category {
+    grid-template-columns: repeat(3, 1fr); /* 3열 */
+    grid-template-rows: repeat(3, auto); /* 3행 */
+    justify-items: center; /* 가로 중앙 정렬 */
+    position: relative;
+    margin: 0 10px;
+}
+
+.category::before,
+.category::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #777777;
+    height: 120%; /* 선의 높이 조정 */
+    margin: auto 0; /* 세로 중앙 정렬 */
+}
+
+.category::before {
+    left: -20px; /* 선 길이 조정 */
+}
+
+.category::after {
+    right: -20px; /* 선 길이 조정 */
+}
+
+.mbti {
+    grid-template-columns: repeat(4, 1fr); /* 4열 */
+    grid-template-rows: repeat(4, auto); /* 4행 */
+    justify-items: center; /* 가로 중앙 정렬 */
+    padding: 0 10px; /* 좌우 여백 줄이기 */
+}
+
+.address span,
+.category span,
+.mbti span {
+    background-color: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none; /* 드래그 방지 */
+}
+
+.address span.active,
+.category span.active,
+.mbti span.active {
+    background-color: #0fb0ff; /* 강조 색상 */
+    color: #fff; /* 강조 색상 텍스트 */
+}
+
+.travel-list {
+    margin-top: 15px; /* 여백 조정 */
+    padding: 20px; /* 여백 조정 */
+    border: 1px solid #d3d3d3;
+    background-color: #fff;
+    max-height: 380px; /* 리스트 높이 조정 */
+}
+
+.travel-list .black-text {
+    font-size: 20px; /* 폰트 크기 조정 */
+    font-weight: bold;
+    text-align: left;
+    position: relative;
+    top: -7px;
+}
+
+.travel-list .blue-text {
+    font-size: 20px; /* 폰트 크기 조정 */
+    font-weight: bold;
+    color: #0fb0ff;
+    text-align: left;
+    position: relative;
+    top: -7px;
+}
+
+.sort-options {
+    display: flex;
+    justify-content: flex-end; /* 오른쪽 정렬 */
+    margin-bottom: 0px;
+    margin-bottom: 10px; /* 여행 항목 리스트 위로 이동 */
+    align-items: center; /* 세로 정렬 맞추기 */
+    font-size: 16px; /* 폰트 크기 조정 */
+    position: relative; /* 위치 조정을 위해 추가 */
+    top: -30px; /* 추가로 더 위로 이동 */
+}
+
+.sort-option {
+    margin: 0 10px;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+}
+
+.sort-option.active {
+    color: #0fb0ff;
+    font-weight: bold;
+}
+
+.travel-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px; /* 간격 조정 */
+}
+
+.travel-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 120px; /* 높이 조정 */
+    margin: 2px 2px;
+    position: relative;
+    user-select: none; /* 선택 방지 */
+    -webkit-user-drag: none; /* 드래그 방지 */
+}
+
+.travel-item img {
+    width: 220px;
+    height: 120px;
+    object-fit: cover; /* 이미지 크기 조절 */
+    margin-left: 20px; /* 왼쪽 마진 */
+    margin-right: 10px; /* 오른쪽 마진 */
+    position: relative;
+}
+
+.travel-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 120px; /* 텍스트 높이를 이미지 높이와 맞춤 */
+    justify-content: center;
+    left: 20px;
+    white-space: nowrap;
+    overflow-y: hidden; /* 오버플로우 숨기기 */
+    text-overflow: ellipsis;
+}
+
+.travel-details h2 {
+    font-size: 16px; /* 폰트 크기 조정 */
+    font-weight: bold;
+    margin: 5px 0; /* 여백 조정 */
+}
+
+.travel-details p {
+    margin: 5px 0;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.pagination a {
+    margin: 0 10px;
+    padding: 5px 10px;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+}
+
+.pagination .page-info {
+    margin: 0 10px;
+}

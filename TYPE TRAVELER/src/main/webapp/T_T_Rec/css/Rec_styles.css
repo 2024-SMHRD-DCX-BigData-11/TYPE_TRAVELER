@@ -1,0 +1,19 @@
+/* 사용자 정의 폰트를 불러오는 부분 */
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* body와 html 기본 스타일 */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+.header {
+    position: static;
+}

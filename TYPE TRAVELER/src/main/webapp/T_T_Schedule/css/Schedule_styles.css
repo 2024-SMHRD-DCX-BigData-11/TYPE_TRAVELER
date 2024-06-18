@@ -1,0 +1,47 @@
+/* 사용자 정의 폰트를 불러오는 부분 */
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* body와 html 기본 스타일 */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+    height: 100%;
+    overflow: hidden; /* 스크롤바를 없애기 위해 추가 */
+}
+
+.header {
+    position: static;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* 부모 요소에 대한 스타일 */
+#cc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 50px); /* 배너 높이를 제외한 전체 높이 */
+    margin-top: 50px; /* 배너 높이만큼 마진 */
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden; /* 스크롤바를 없애기 위해 추가 */
+}
+
+/* 캘린더 요소에 대한 스타일 */
+#calendar {
+    width: 100%;  /* 캘린더 너비를 100%로 설정 */
+    height: 90%;  /* 캘린더 높이를 90%로 설정 */
+    box-sizing: border-box;  /* 패딩과 테두리를 포함한 크기를 조정 */
+    overflow: hidden;  /* 스크롤바를 없애기 위해 추가 */
+}

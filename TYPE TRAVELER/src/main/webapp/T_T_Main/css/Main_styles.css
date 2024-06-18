@@ -1,0 +1,1005 @@
+/* 사용자 정의 폰트를 불러오는 부분 */
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* body와 html 기본 스타일 */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+/* 헤더 스타일 */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 47px;
+    background-color: #0fb0ff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 1000; /* 헤더가 다른 내용 위에 있도록 설정 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+}
+
+.header img {
+    height: 45px; /* 로고 이미지 높이 조정 */
+}
+
+/* 내비게이션 메뉴 스타일 */
+.nav-menu {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    position: relative;
+    margin-left: 20px;
+}
+
+.nav-menu a {
+    color: white !important; /* 강제로 흰색으로 설정 */
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: block;
+    transition: color 0.3s;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+.nav-menu a:hover {
+    color: #ffcc00 !important; /* 강제로 호버 시 색상 변경 */
+}
+
+.nav-menu .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #0fb0ff;
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.nav-menu .submenu li {
+    margin-left: 0;
+}
+
+.nav-menu .submenu a {
+    padding: 10px;
+    white-space: nowrap;
+    color: white !important; /* 강제로 흰색으로 설정 */
+    transition: color 0.3s;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+.nav-menu .submenu a:hover {
+    color: #ffcc00 !important; /* 서브메뉴 호버 시 텍스트 색상 변경 */
+}
+
+.nav-menu li:hover .submenu {
+    display: block;
+}
+
+/* 메인 콘텐츠 스타일 */
+.main-content {
+    margin-top: 50px; /* 고정된 헤더를 고려한 여백 조정 */
+    padding-top: 20px; /* 30px 여백 확보 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+/* 검색 컨테이너 스타일 */
+.search-container {
+    position: relative; /* 자식 요소를 기준으로 위치를 설정하기 위해 relative 사용 */
+    width: 940px;
+    height: 53px;
+    margin: 10px auto;
+}
+
+#searchQuery {
+    width: 100%;
+    height: 100%;
+    padding: 0 50px 0 20px; /* 오른쪽에 아이콘 공간 확보 */
+    font-size: 16px;
+    border: 1px solid #0fb0ff;
+    border-radius: 25px; /* 둥근 직사각형 모양으로 변경 */
+    box-sizing: border-box;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+.search-icon-container {
+    position: absolute; /* 검색창 내부에 아이콘을 위치시키기 위해 absolute 사용 */
+    top: 50%;
+    right: 20px; /* 오른쪽 끝에 위치 */
+    transform: translateY(-50%); /* 수직 중앙 정렬 */
+    cursor: pointer; /* 클릭 가능하도록 포인터 커서 설정 */
+}
+
+.search-icon {
+    width: 24px; /* 돋보기 아이콘 크기 설정 */
+    height: 24px;
+}
+
+/* 콘텐츠 컨테이너 스타일 */
+.content-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* 지도(왼쪽) */
+#map {
+    padding: 10px;
+    width: 400px;
+    height: 500px;
+    margin-right: 40px;
+    border: 1px solid #ccc;
+}
+
+/* 중앙 박스 */
+.central-box {
+    padding: 10px;
+    width: 400px;
+    height: 500px;
+    color: #ffffff;
+    background-color: #0fb0ff;
+    border: 1px solid #ccc;
+}
+
+.central-box .step {
+    margin-top: 20px;
+}
+
+.central-box label {
+    display: block;
+    font-size: 18px;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+.central-box select {
+    width: 100%;
+    margin-bottom: 40px;
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+select {
+    color: black; /* 기본 색상 */
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+/* 선택 박스가 유효하지 않은 경우 (placeholder 상태) */
+select:invalid {
+    color: gray;
+}
+
+/* 선택 박스가 유효하지 않은 경우 첫 번째 옵션을 회색으로 */
+select:invalid option:first-child {
+    display: none;
+}
+
+/* 결과(오른쪽) */
+.right-box {
+    background-color: #ffffff; /* 흰색 배경 */
+    width: 400px; /* 너비 설정 */
+    height: 506px; /* 높이 설정 */
+    margin-left: 40px; /* 왼쪽 마진 */
+    border: 1px solid #0fb0ff; /* 테두리 색상 */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* 내용을 왼쪽 정렬 */
+    padding: 7px; /* 내부 패딩 */
+}
+
+/* 내부 컨텐츠 설정 */
+.content {
+    width: 100%; /* 전체 너비 사용 */
+    display: flex;
+    flex-direction: column;
+}
+
+/* 해시태그 스타일 */
+#hashtag {
+    font-size: 28px !important;
+    color: black !important;
+    font-weight: bold;
+    width: 100%; /* 전체 너비 사용 */
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+    margin-bottom: 8px; /* 하단 마진 */
+}
+
+/* 각 정보 패키지 설정 */
+.package {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 85px;
+    margin: 2px 2px;
+    position: relative;
+}
+
+/* 이미지 설정 */
+.image {
+    width: 120px;
+    height: 85px;
+    object-fit: cover; /* 이미지 크기 조절 */
+    margin-right: 10px; /* 오른쪽 마진 */
+    position: relative;
+    left: 0;
+}
+
+/* 텍스트 요소 컨테이너 */
+.element {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 85px; /* 텍스트 높이를 이미지 높이와 맞춤 */
+    justify-content: center;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 제목 스타일 */
+.title {
+    font-size: 20px;
+    color: black;
+    margin-bottom: 3px;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 주소, 설명, 키워드 스타일 */
+.address, .explanation, .keywords {
+    font-size: 12px;
+    color: grey;
+}
+
+/* 구분선 스타일 */
+.line {
+    width: 100%; /* 전체 너비 사용 */
+    margin: 1px;
+    border: none;
+    flex: 1;
+  	border-bottom: 1px solid #0fb0ff;
+}
+
+/* 인디케이터 동그라미 설정 */
+.indicator {
+    display: flex;
+    flex-direction: row; /* 수평 정렬 */
+    justify-content: center; /* 중앙 정렬 */
+    margin: 10px 0; /* 상하 마진 */
+}
+
+.circle {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 3px 8px; /* 좌우 마진 */
+    cursor: pointer;
+}
+
+.circle.active {
+    background-color: #0fb0ff; /* 활성화 상태일 때의 색상 */
+}
+
+/* 버튼 스타일 */
+#button {
+    background-color: #ffffff;
+    border: 1px solid #0fb0ff;
+    text-align: center;
+    width: 100%; /* 전체 너비 */
+    padding: 12px 0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.black-text {
+    color: #000000;
+}
+
+.highlight-text {
+    color: #0fb0ff;
+}
+
+.hover {
+	color: #ffcc00; /* hover시 higlight-text 변경 */
+}
+
+/* 캘린더 css */
+#calendar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 100%;
+    opacity: 0; /* 처음에는 숨김 */
+    transform: translateY(50px); /* 애니메이션 시작 위치 */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* 부드러운 전환 효과 */
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+/* 캘린더 크기 조절 */
+#calendar {
+    width: 80%; /* 필요에 따라 조정 */
+    max-width: 1200px; /* 최대 크기 고정 */
+}
+
+
+/* 저작권 표시 */
+#maker-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#maker {
+    font-size: 13px;
+    color: #777777;
+    margin-top: 15px;
+    margin-right: 4px; /* 오른쪽 여백 추가 */
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+/* 로그인 팝업 */
+#loginModal {
+    display: none; /* 기본적으로 숨김 */
+    position: fixed; /* 고정 위치 */
+    z-index: 1001; /* 최상위에 위치 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* 필요 시 스크롤 가능 */
+	background-color: rgba(0,0,0,0.4); /* 반투명 검정 배경 */
+    justify-content: center;
+    align-items: center;
+    display: flex; /* 콘텐츠 가운데 정렬 */
+}
+
+#loginContent {
+    background-color: #ffffff;
+    padding: 0;
+    border: 1px solid #888;
+    width: 580px; /* 너비 조정 */
+    height: 280px; /* 높이 조정 */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    animation: modal-slide-up 0.7s ease-out forwards; /* 모달이 나타날 때의 애니메이션 */
+}
+
+@keyframes modal-slide-up {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes modal-slide-down {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+.login-header {
+    width: 100%;
+    height: 50px;
+    background-color: #0fb0ff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 30px; /* 아래 여백 추가 */
+}
+
+.login-header img {
+    height: 40px; /* 로고 높이 조정 */
+}
+
+.login-header .close {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-header .close:hover,
+.login-header .close:focus {
+    color: #ffcc00;
+}
+
+#loginContent input[type="text"],
+#loginContent input[type="password"] {
+    width: calc(100% - 40px);
+    margin: 0; /* 여백 제거 */
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #0fb0ff;
+    border-radius: 0; /* 연속된 필드에 대해 테두리 둥글기를 제거 */
+    box-sizing: border-box;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+/* 첫 번째와 마지막 입력 필드에 대한 구체적인 스타일 추가 */
+#loginContent input[type="text"]:first-of-type {
+    border-radius: 5px 5px 0 0; /* 위쪽 모서리 둥글게 */
+}
+
+#loginContent input[type="password"]:last-of-type {
+    border-radius: 0 0 5px 5px; /* 아래쪽 모서리 둥글게 */
+}
+
+/* 로그인 버튼 */
+.login-button {
+    width: calc(100% - 40px);
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #0fb0ff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.login-button:hover {
+    background-color: #007bb5;
+}
+
+/* 에러 메시지 스타일 */
+.error-message {
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px; /* 상단 여백 추가 */
+    margin-bottom: -20px; /* 하단 여백 추가 */
+    font-family: 'S-CoreDream-3Light', sans-serif;
+    position: absolute; /* 오류 메시지를 절대 위치로 설정 */
+    top: 155px; /* 필요한 만큼 조정하여 레이아웃에 맞춤 */
+    left: 20px; /* 필요한 만큼 조정하여 레이아웃에 맞춤 */
+    right: 20px; /* 필요한 만큼 조정하여 레이아웃에 맞춤 */
+    z-index: 1; /* 다른 요소 위에 표시되도록 설정 */
+}
+
+
+/* 회원가입 팝업 */
+#joinModal {
+    display: none; /* 기본적으로 숨김 */
+    position: fixed; /* 고정 위치 */
+    z-index: 1001; /* 최상위에 위치 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* 필요 시 스크롤 가능 */
+    background-color: rgba(0,0,0,0.4); /* 반투명 검정 배경 */
+    justify-content: center;
+    align-items: center;
+}
+
+
+#joinContent {
+    background-color: #ffffff;
+    padding: 0;
+    border: 1px solid #888;
+    width: 580px; /* 너비 조정 */
+    height: auto; /* 높이 자동 */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    transform: translateY(100%); /* 초기 위치 설정 */
+    animation: modal-slide-up 0.7s ease-out forwards; /* 모달이 나타날 때의 애니메이션 */
+}
+
+/* 슬라이드 업 애니메이션 */
+@keyframes modal-slide-up {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 슬라이드 다운 애니메이션 */
+@keyframes modal-slide-down {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+.join-header {
+    width: 100%;
+    height: 50px;
+    background-color: #ffcc00;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 20px; /* 아래 여백 추가 */
+}
+
+.join-header img {
+    height: 40px; /* 로고 높이 조정 */
+}
+
+.join-header .close {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.join-header .close:hover,
+.join-header .close:focus {
+    color: #777777;
+}
+
+#joinForm {
+    padding: 0 20px;
+}
+
+#joinContent .input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+#joinContent .input-group label {
+    flex: 0 0 80px; /* 너비를 고정하여 일정하게 유지 */
+    font-size: 14px;
+    color: #333;
+}
+
+#joinContent .input-group input {
+    flex: 1;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ffcc00;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+    height: 40px;
+    margin-right: 10px; /* 버튼과의 여백 추가 */
+    min-width: 0; /* 입력 필드의 최소 너비를 설정 */
+}
+
+#joinContent .input-group .check-button {
+    padding: 0 15px;
+    font-size: 14px;
+    border: 1px solid #ffcc00;
+    border-radius: 5px;
+    background-color: #ffcc00;
+    color: #fff;
+    cursor: pointer;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    white-space: nowrap; /* 텍스트 줄 바꿈 방지 */
+    flex-shrink: 0; /* 버튼 크기 고정 */
+}
+
+#joinContent label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#joinContent input[type="text"],
+#joinContent input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ffcc00;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+#joinContent .check-button {
+    padding: 10px;
+    font-size: 14px;
+    color: white;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+#joinContent .check-button:hover {
+    background-color: #d9ad00;
+}
+
+#joinContent .mbti-link {
+    text-align: center;
+    margin: 20px auto;
+}
+
+#joinContent .mbti-link span {
+    color: #333;
+    text-decoration: none;
+    font-size: 12px;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+#joinContent .mbti-link a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-size: 12px;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+#joinContent .mbti-link a:hover {
+    text-decoration: underline;
+}
+
+
+.success-message {
+	color: #ffcc00;
+	font-size: 14px;
+	font-weight: bold;
+	display: none; /* 기본값: 숨김 */
+	text-align: center;
+	margin: 20px auto;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    display: none; /* 기본값: 숨김 */
+    text-align: center;
+    margin: 20px auto;
+}
+
+.join-button {
+    width: 100%; /* 버튼 너비를 100%로 설정 */
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+.join-button:hover {
+    background-color: #d9ad00;
+}
+
+
+/* 환영 팝업 스타일 */
+#welcomeModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    animation: fadeIn 0.5s ease-out forwards; /* 페이드 인 애니메이션 */
+}
+
+#welcomeContent {
+    text-align: center;
+    padding: 0; /* 패딩 제거 */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 550px;
+    width: 100%;
+    margin: auto;
+    padding-bottom: 20px; /* 하단 패딩 추가 */
+    animation: zoomInOut 0.5s ease-out forwards; /* 확대/축소 애니메이션 */
+}
+
+/* 페이드 인 애니메이션 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* 확대/축소 애니메이션 */
+@keyframes zoomInOut {
+    0% {
+        transform: scale(0.8); /* 초기 크기의 80%로 시작 */
+        opacity: 0; /* 투명도 0으로 시작 */
+    }
+    50% {
+        transform: scale(1.1); /* 크기 110%로 확대 */
+        opacity: 1; /* 투명도 100% */
+    }
+    100% {
+        transform: scale(1); /* 원래 크기로 돌아옴 */
+        opacity: 1; /* 투명도 100% */
+    }
+}
+
+.welcome-header {
+    width: 100%;
+    height: 55px;
+    background-color: #ffcc00;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* 왼쪽 정렬로 수정 */
+    border-radius: 10px 10px 0 0;
+    padding: 0 10px; /* 왼쪽과 오른쪽 여백 추가 */
+    box-sizing: border-box;
+    margin-bottom: 20px; /* 아래 여백 추가 */
+}
+
+.welcome-header img {
+    height: 50px; /* 로고 높이 조정 */
+}
+
+#welcomeContent h2 {
+    font-size: 45px;
+    color: #ffcc00;
+}
+
+#welcomeMessage {
+    font-size: 17px;
+    margin: 20px 0;
+    color: #000000;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+#additionalMessage {
+    font-size: 14px;
+    margin: 20px 0;
+    color: #777777; /* 색상을 회색으로 설정 */
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+#welcomeContent button {
+    width: calc(100% - 60px);
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+#welcomeContent button:hover {
+    background-color: #d9ad00;
+}
+
+
+/* 마이페이지 모달 스타일 */
+#myPageModal {
+    display: none; /* 기본적으로 숨김 */
+    position: fixed; /* 고정 위치 */
+    z-index: 1001; /* 최상위에 위치 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* 필요 시 스크롤 가능 */
+    background-color: rgba(0,0,0,0.4); /* 반투명 검정 배경 */
+    justify-content: center;
+    align-items: center;
+    display: flex; /* 콘텐츠 가운데 정렬 */
+}
+
+#myPageContent {
+    background-color: #ffffff;
+    padding: 0;
+    border: 1px solid #888;
+    width: 580px; /* 너비 조정 */
+    height: auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    transform: translateY(100%); /* 초기 위치 설정 */
+    opacity: 0;
+}
+
+/* 슬라이드 업 애니메이션 */
+@keyframes modal-slide-up {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 슬라이드 다운 애니메이션 */
+@keyframes modal-slide-down {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+/* 클래스 추가로 애니메이션 트리거 */
+.slide-up {
+    animation: modal-slide-up 0.7s ease-out forwards;
+}
+
+.slide-down {
+    animation: modal-slide-down 0.7s ease-out forwards;
+}
+
+
+.profile-header {
+    width: 100%;
+    height: 50px;
+    background-color: #0fb0ff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 20px; /* 아래 여백 추가 */
+}
+
+.profile-header img {
+    height: 40px; /* 로고 높이 조정 */
+}
+
+.profile-header .close {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#myPageContent h2 {
+    font-size: 35px;
+    margin-tom: 10px;
+    margin-bottom: -5px;
+}
+
+#userEmail {
+    font-size: 16px; /* 글자 크기 */
+    color: #777; /* 글자 색상 */
+    margin: 10px 0; /* 상하 여백 */
+}
+
+
+.profile-header .close:hover,
+.profile-header .close:focus {
+    color: #ffcc00;
+}
+
+#profileForm {
+	padding: 0 20px;
+}
+
+#myPageContent label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+
+#myPageContent input[type="text"],
+#myPageContent input[type="password"] {
+    width: calc(100% - 40px);
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #0fb0ff;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+    margin-bottom: 10px; /* 아래 여백 추가 */
+}
+
+.update-button {
+    width: calc(100% - 40px);
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #0fb0ff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+.update-button:hover {
+    background-color: #007bb5;
+}
+
+.password-error-message {
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    display: none; /* 기본값: 숨김 */
+    text-align: center;
+    margin: px auto;
+}
