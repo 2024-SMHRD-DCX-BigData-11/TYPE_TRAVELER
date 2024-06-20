@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.T_T.database.RegionMapper">
+
+   <select id="listAll" resultType="Region">
+      SELECT * FROM tb_region
+   </select>
+
+   <select id="listRandom4" resultType="Region">
+    <![CDATA[
+        SELECT * FROM (
+            SELECT * FROM tb_region 
+            ORDER BY DBMS_RANDOM.VALUE
+        ) 
+        WHERE ROWNUM <= 4
+    ]]>
+   </select>
+
+   <select id="list4" parameterType="map" resultType="Region">
+      SELECT * FROM (
+      SELECT a.*, ROWNUM as RNUM FROM tb_region a
+      <where>
+         <foreach item="region" index="index" collection="regions"
+            open="(" separator=" OR " close=")">
+            region_address LIKE #{region} || '%'
+         </foreach>
+         <if test="category != null and category.size() > 0">
+            AND region_id IN (
+            SELECT region_id FROM tb_category
+            WHERE category_no IN
+            <foreach item="item" index="index" collection="category"
+               open="(" separator="," close=")">
+               #{item, jdbcType=INTEGER}
+            </foreach>
+            )
+         </if>
+      </where>
+    <![CDATA[
+           AND ROWNUM <= #{page} * 4 ORDER BY a.region_id)
+       WHERE rnum >= #{page} * 4 - 3
+    ]]>
+   </select>
+
+   <select id="count" resultType="int">
+      SELECT COUNT(*) FROM tb_region
+      WHERE
+      <foreach item="region" index="index" collection="regions"
+         open="(" separator=" OR " close=")">
+         region_address LIKE #{region} || '%'
+      </foreach>
+      <if test="category != null and category.size() > 0">
+         AND region_id IN (
+         SELECT region_id FROM tb_category
+         WHERE category_no IN
+         <foreach item="item" index="index" collection="category"
+            open="(" separator="," close=")">
+            #{item, jdbcType=INTEGER}
+         </foreach>
+         )
+      </if>
+   </select>
+
+   <select id="selectRegion" parameterType="map"
+      resultType="Region">
+      SELECT * FROM (
+      SELECT * FROM tb_region
+      WHERE region_address LIKE #{region} || '%'
+      <if test="category != null and category.size() > 0">
+         AND region_id IN (
+         SELECT region_id FROM tb_category
+         WHERE category_no IN
+         <foreach item="item" index="index" collection="category"
+            open="(" separator="," close=")">
+            #{item, jdbcType=INTEGER}
+         </foreach>
+         )
+      </if>
+      ORDER BY DBMS_RANDOM.VALUE
+      )
+    <![CDATA[
+        WHERE ROWNUM <= 4
+        ]]>
+   </select>
+
+   <select id="selectMbti" parameterType="String"
+      resultType="Integer">
+      SELECT category_no FROM tb_mbti_detail WHERE mbti=#{mbti}
+   </select>
+
+   <select id="selectMbtis" parameterType="java.util.List"
+      resultType="Integer">
+      SELECT DISTINCT(category_no)
+      FROM tb_mbti_detail
+      WHERE mbti IN
+      <foreach item="item" collection="list" open="(" separator=","
+         close=")">
+         #{item}
+      </foreach>
+   </select>
+</mapper>

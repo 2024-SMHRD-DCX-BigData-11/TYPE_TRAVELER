@@ -12,4 +12,3 @@ public class MemberDTO {
     private String user_name;
     private String user_mbti;
 }
-

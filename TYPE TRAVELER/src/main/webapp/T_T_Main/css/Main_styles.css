@@ -12,6 +12,7 @@ body, html {
     padding: 0;
     width: 100%;
     font-family: 'S-CoreDream-3Light', sans-serif;
+	overflow-x: hidden;
 }
 
 /* 헤더 스타일 */
@@ -122,6 +123,7 @@ body, html {
     padding: 0 50px 0 20px; /* 오른쪽에 아이콘 공간 확보 */
     font-size: 16px;
     border: 1px solid #0fb0ff;
+    box-shadow: 0px 2px 2px rgba(15, 176, 255, 0.4);
     border-radius: 25px; /* 둥근 직사각형 모양으로 변경 */
     box-sizing: border-box;
     font-family: 'S-CoreDream-3Light', sans-serif;
@@ -221,7 +223,7 @@ select:invalid option:first-child {
 
 /* 해시태그 스타일 */
 #hashtag {
-    font-size: 28px !important;
+    font-size: 27px !important;
     color: black !important;
     font-weight: bold;
     width: 100%; /* 전체 너비 사용 */
@@ -273,8 +275,16 @@ select:invalid option:first-child {
 
 /* 주소, 설명, 키워드 스타일 */
 .address, .explanation, .keywords {
-    font-size: 12px;
+    font-size: 11px;
     color: grey;
+    margin: 2px 0;
+}
+/* 임시 */
+element .address, .explanation, .keywords, .title {
+    white-space: nowrap; /* 텍스트를 한 줄로 유지합니다 */
+    overflow: hidden; /* 넘치는 내용을 숨깁니다 */
+    text-overflow: ellipsis;
+    width: 270px;
 }
 
 /* 구분선 스타일 */
@@ -283,52 +293,7 @@ select:invalid option:first-child {
     margin: 1px;
     border: none;
     flex: 1;
-  	border-bottom: 1px solid #0fb0ff;
-}
-
-/* 인디케이터 동그라미 설정 */
-.indicator {
-    display: flex;
-    flex-direction: row; /* 수평 정렬 */
-    justify-content: center; /* 중앙 정렬 */
-    margin: 10px 0; /* 상하 마진 */
-}
-
-.circle {
-    width: 10px;
-    height: 10px;
-    background-color: #ccc;
-    border-radius: 50%;
-    margin: 3px 8px; /* 좌우 마진 */
-    cursor: pointer;
-}
-
-.circle.active {
-    background-color: #0fb0ff; /* 활성화 상태일 때의 색상 */
-}
-
-/* 버튼 스타일 */
-#button {
-    background-color: #ffffff;
-    border: 1px solid #0fb0ff;
-    text-align: center;
-    width: 100%; /* 전체 너비 */
-    padding: 12px 0;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    font-size: 15px;
-}
-
-.black-text {
-    color: #000000;
-}
-
-.highlight-text {
-    color: #0fb0ff;
-}
-
-.hover {
-	color: #ffcc00; /* hover시 higlight-text 변경 */
+     border-bottom: 1px solid #0fb0ff;
 }
 
 /* 캘린더 css */
@@ -379,7 +344,7 @@ select:invalid option:first-child {
     width: 100%;
     height: 100%;
     overflow: auto; /* 필요 시 스크롤 가능 */
-	background-color: rgba(0,0,0,0.4); /* 반투명 검정 배경 */
+   background-color: rgba(0,0,0,0.4); /* 반투명 검정 배경 */
     justify-content: center;
     align-items: center;
     display: flex; /* 콘텐츠 가운데 정렬 */
@@ -697,12 +662,12 @@ select:invalid option:first-child {
 
 
 .success-message {
-	color: #ffcc00;
-	font-size: 14px;
-	font-weight: bold;
-	display: none; /* 기본값: 숨김 */
-	text-align: center;
-	margin: 20px auto;
+   color: #ffcc00;
+   font-size: 14px;
+   font-weight: bold;
+   display: none; /* 기본값: 숨김 */
+   text-align: center;
+   margin: 20px auto;
 }
 
 .error-message {
@@ -950,7 +915,7 @@ select:invalid option:first-child {
 }
 
 #profileForm {
-	padding: 0 20px;
+   padding: 0 20px;
 }
 
 #myPageContent label {

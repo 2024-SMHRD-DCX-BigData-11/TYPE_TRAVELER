@@ -9,4 +9,48 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+
+
+  <servlet>
+    <servlet-name>LoadEventsServlet</servlet-name>
+    <servlet-class>com.T_T.controller.LoadEventsServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>LoadEventsServlet</servlet-name>
+    <url-pattern>/T_T_Schedule/LoadEventsServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>AddEventServlet</servlet-name>
+    <servlet-class>com.T_T.controller.AddEventServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>AddEventServlet</servlet-name>
+    <url-pattern>/T_T_Schedule/AddEventServlet</url-pattern>
+  </servlet-mapping>
+
+	<servlet>
+	    <servlet-name>UpdateEventCon</servlet-name>
+	    <servlet-class>com.T_T.controller.UpdateEventCon</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	    <servlet-name>UpdateEventCon</servlet-name>
+	    <url-pattern>/T_T_Schedule/UpdateEventCon</url-pattern>
+	</servlet-mapping>
+ 
+  	<servlet>
+	    <servlet-name>DeleteEventServlet</servlet-name>
+	    <servlet-class>com.T_T.controller.DeleteEventServlet</servlet-class>
+	</servlet>
+
+  <servlet-mapping>
+    <servlet-name>DeleteEventServlet</servlet-name>
+    <url-pattern>/T_T_Schedule/DeleteEventServlet</url-pattern>
+  </servlet-mapping>
+  
+
+  
 </web-app>

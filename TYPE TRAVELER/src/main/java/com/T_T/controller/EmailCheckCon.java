@@ -20,8 +20,8 @@ public class EmailCheckCon extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String email = request.getParameter("email");
-
+        String user_email = request.getParameter("inputEmail");
+        System.out.println("실행1");
         // JDBC 연결 설정 (예시에서는 간단히 설명하기 위해 URL, 사용자명, 비밀번호를 직접 기재했습니다. 실제 프로젝트에서는 보안을 고려하여 설정하세요.)
         String jdbcUrl = "jdbc:oracle:thin:@project-db-cgi.smhrd.com:1524:xe"; // Oracle 데이터베이스 URL
         String dbUser = "sc_DCX_bigdata11_p2_4";
@@ -31,21 +31,22 @@ public class EmailCheckCon extends HttpServlet {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         boolean exists = false;
-
+        System.out.println("실행2");
         try {
             // 데이터베이스 연결
             Class.forName("oracle.jdbc.driver.OracleDriver");
             conn = DriverManager.getConnection(jdbcUrl, dbUser, dbPassword);
-
+            System.out.println("실행3");
             // 이메일 중복 확인 쿼리
-            String sql = "SELECT COUNT(*) AS count FROM tb_user WHERE email = ?";
+            String sql = "SELECT COUNT(*) AS count FROM tb_user WHERE user_email = ?";
             stmt = conn.prepareStatement(sql);
-            stmt.setString(1, email);
-
+            stmt.setString(1, user_email);
+            System.out.println(user_email);
             rs = stmt.executeQuery();
             if (rs.next()) {
                 int count = rs.getInt("count");
                 if (count > 0) {
+                	System.out.println("있음");
                     exists = true;
                 }
             }

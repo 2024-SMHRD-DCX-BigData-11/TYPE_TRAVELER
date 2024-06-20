@@ -1,14 +1,49 @@
 -- 테이블 순서는 관계를 고려하여 한 번에 실행해도 에러가 발생하지 않게 정렬되었습니다.
 
+-- tb_region Table Create SQL
+-- 테이블 생성 SQL - tb_region
+CREATE TABLE tb_region
+(
+    region_id         NUMBER(18, 0)     NOT NULL, 
+    region_title      VARCHAR2(1000)    NOT NULL, 
+    region_info       CLOB              NULL, 
+    region_address    VARCHAR2(1000)    NULL, 
+    keyword           VARCHAR2(1500)    NULL, 
+    region_img        VARCHAR2(255)     NULL, 
+     PRIMARY KEY (region_id)
+);
+
+-- 테이블 Comment 설정 SQL - tb_region
+COMMENT ON TABLE tb_region IS '지역 정보';
+
+-- 컬럼 Comment 설정 SQL - tb_region.region_id
+COMMENT ON COLUMN tb_region.region_id IS '지역 아이디';
+
+-- 컬럼 Comment 설정 SQL - tb_region.region_title
+COMMENT ON COLUMN tb_region.region_title IS '지역 명';
+
+-- 컬럼 Comment 설정 SQL - tb_region.region_info
+COMMENT ON COLUMN tb_region.region_info IS '지역 소개';
+
+-- 컬럼 Comment 설정 SQL - tb_region.region_address
+COMMENT ON COLUMN tb_region.region_address IS '지역 주소';
+
+-- 컬럼 Comment 설정 SQL - tb_region.keyword
+COMMENT ON COLUMN tb_region.keyword IS '태그';
+
+-- 컬럼 Comment 설정 SQL - tb_region.region_img
+COMMENT ON COLUMN tb_region.region_img IS '지역 이미지';
+
+
 -- tb_user Table Create SQL
 -- 테이블 생성 SQL - tb_user
 CREATE TABLE tb_user
 (
-    user_email    VARCHAR2(50)     NOT NULL, 
-    user_pw       VARCHAR2(50)     NOT NULL, 
-    user_name     VARCHAR2(50)     NOT NULL, 
-    user_mbti     CHAR(4)          NOT NULL, 
-    joined_at     DATE             DEFAULT SYSDATE NOT NULL,
+    user_email    VARCHAR2(50)    NOT NULL, 
+    user_pw       VARCHAR2(50)    NOT NULL, 
+    user_name     VARCHAR2(50)    NOT NULL, 
+    user_mbti     VARCHAR2(4)     NOT NULL, 
+    joined_at     DATE            DEFAULT SYSDATE NOT NULL, 
      PRIMARY KEY (user_email)
 );
 
@@ -30,9 +65,6 @@ COMMENT ON COLUMN tb_user.user_mbti IS '회원 MBTI';
 -- 컬럼 Comment 설정 SQL - tb_user.joined_at
 COMMENT ON COLUMN tb_user.joined_at IS '회원 가입일자';
 
--- 컬럼 Comment 설정 SQL - tb_user.login_type
-COMMENT ON COLUMN tb_user.login_type IS '로그인 방식. ''local'',''kakao';
-
 -- Index 설정 SQL - tb_user(user_name)
 CREATE INDEX IX_tb_user_1
     ON tb_user(user_name);
@@ -52,7 +84,6 @@ CREATE TABLE tb_recruit_tm
     created_at        DATE              DEFAULT SYSDATE NOT NULL, 
     closed_at         DATE              NOT NULL, 
     recruit_status    CHAR(1)           DEFAULT 'N' NOT NULL, 
-    recruit_views     INT               DEFAULT 0 NULL, 
      PRIMARY KEY (recruit_id)
 );
 
@@ -108,87 +139,55 @@ COMMENT ON COLUMN tb_recruit_tm.closed_at IS '마감일자';
 -- 컬럼 Comment 설정 SQL - tb_recruit_tm.recruit_status
 COMMENT ON COLUMN tb_recruit_tm.recruit_status IS '동반자찾기 상태';
 
--- 컬럼 Comment 설정 SQL - tb_recruit_tm.recruit_views
-COMMENT ON COLUMN tb_recruit_tm.recruit_views IS '조회수';
-
 -- Foreign Key 설정 SQL - tb_recruit_tm(user_email) -> tb_user(user_email)
 ALTER TABLE tb_recruit_tm
-    ADD CONSTRAINT FK_tb_recruit_user_user_email FOREIGN KEY (user_email)
+    ADD CONSTRAINT FK_tb_recruit_tm_user_email_tb_user_user_email FOREIGN KEY (user_email)
         REFERENCES tb_user (user_email) ;
 
 -- Foreign Key 삭제 SQL - tb_recruit_tm(user_email)
 -- ALTER TABLE tb_recruit_tm
--- DROP CONSTRAINT FK_tb_recruit_user_user_email;
+-- DROP CONSTRAINT FK_tb_recruit_tm_user_email_tb_user_user_email;
 
 
--- tb_region Table Create SQL
--- 테이블 생성 SQL - tb_region
-CREATE TABLE tb_region
+-- tb_category Table Create SQL
+-- 테이블 생성 SQL - tb_category
+CREATE TABLE tb_category
 (
-    region_id        NUMBER(18, 0)     NOT NULL, 
-    region_name      VARCHAR2(50)      NOT NULL, 
-    region_info      CLOB              NOT NULL, 
-    region_img       VARCHAR2(1000)    NOT NULL, 
-    lat              NUMBER(17, 14)    DEFAULT 0.0 NOT NULL, 
-    lng              NUMBER(17, 14)    DEFAULT 0.0 NOT NULL, 
-    created_at       DATE              DEFAULT SYSDATE NOT NULL, 
-    category_name    VARCHAR2(50)      NOT NULL, 
-    mbti             CHAR(4)           NOT NULL, 
-    keyword          varchar2(1500)    NOT Null,
-     PRIMARY KEY (region_id)
+    region_id      NUMBER(18, 0)    NOT NULL, 
+    category_no    NUMBER(18, 0)    NOT NULL, 
+     PRIMARY KEY (region_id, category_no)
 );
 
--- Auto Increment를 위한 Sequence 추가 SQL - tb_region.region_id
-CREATE SEQUENCE tb_region_SEQ
-START WITH 1
-INCREMENT BY 1;
+-- 테이블 Comment 설정 SQL - tb_category
+COMMENT ON TABLE tb_category IS '카테고리 정보';
 
--- Auto Increment를 위한 Trigger 추가 SQL - tb_region.region_id
-CREATE OR REPLACE TRIGGER tb_region_AI_TRG
-BEFORE INSERT ON tb_region 
-REFERENCING NEW AS NEW FOR EACH ROW 
-BEGIN 
-    SELECT tb_region_SEQ.NEXTVAL
-    INTO :NEW.region_id
-    FROM DUAL;
-END;
+-- 컬럼 Comment 설정 SQL - tb_category.region_id
+COMMENT ON COLUMN tb_category.region_id IS '지역 아이디';
 
--- DROP TRIGGER tb_region_AI_TRG; 
+-- 컬럼 Comment 설정 SQL - tb_category.category_no
+COMMENT ON COLUMN tb_category.category_no IS '카테고리 아이디';
 
--- DROP SEQUENCE tb_region_SEQ; 
+-- Foreign Key 설정 SQL - tb_category(region_id) -> tb_region(region_id)
+ALTER TABLE tb_category
+    ADD CONSTRAINT FK_tb_category_region_id_tb_region_region_id FOREIGN KEY (region_id)
+        REFERENCES tb_region (region_id) ;
 
--- 테이블 Comment 설정 SQL - tb_region
-COMMENT ON TABLE tb_region IS '지역 정보';
+-- Foreign Key 삭제 SQL - tb_category(region_id)
+-- ALTER TABLE tb_category
+-- DROP CONSTRAINT FK_tb_category_region_id_tb_region_region_id;
 
--- 컬럼 Comment 설정 SQL - tb_region.region_id
-COMMENT ON COLUMN tb_region.region_id IS '지역 아이디';
 
--- 컬럼 Comment 설정 SQL - tb_region.region_name
-COMMENT ON COLUMN tb_region.region_name IS '지역 명';
+-- tb_mbti Table Create SQL
+-- 테이블 생성 SQL - tb_mbti
+CREATE TABLE tb_mbti
+(
+    mbti    NUMBER(18, 0)    NOT NULL, 
+     PRIMARY KEY (mbti)
+);
 
--- 컬럼 Comment 설정 SQL - tb_region.region_info
-COMMENT ON COLUMN tb_region.region_info IS '지역 소개';
+-- 컬럼 Comment 설정 SQL - tb_mbti.mbti
+COMMENT ON COLUMN tb_mbti.mbti IS 'mbti';
 
--- 컬럼 Comment 설정 SQL - tb_region.region_img
-COMMENT ON COLUMN tb_region.region_img IS '지역 파일(이미지)';
-
--- 컬럼 Comment 설정 SQL - tb_region.lat
-COMMENT ON COLUMN tb_region.lat IS '위도';
-
--- 컬럼 Comment 설정 SQL - tb_region.lng
-COMMENT ON COLUMN tb_region.lng IS '경도';
-
--- 컬럼 Comment 설정 SQL - tb_region.created_at
-COMMENT ON COLUMN tb_region.created_at IS '등록 일자';
-
--- 컬럼 Comment 설정 SQL - tb_region.category_name
-COMMENT ON COLUMN tb_region.category_name IS '카테고리 명';
-
--- 컬럼 Comment 설정 SQL - tb_region.mbti
-COMMENT ON COLUMN tb_region.mbti IS 'MBTI';
-
--- 컬럼 Comment 설정 SQL - tb_region.keyword
-COMMENT ON COLUMN tb_region.keyword IS '키워드';
 
 -- tb_travel_log Table Create SQL
 -- 테이블 생성 SQL - tb_travel_log
@@ -197,11 +196,8 @@ CREATE TABLE tb_travel_log
     tlog_id         NUMBER(18, 0)     NOT NULL, 
     tlog_title      VARCHAR2(500)     NOT NULL, 
     tlog_content    CLOB              NOT NULL, 
-    tlog_img1       VARCHAR2(1000)    NOT NULL, 
-    tlog_img2       VARCHAR2(1000)    NULL, 
-    tlog_img3       VARCHAR2(1000)    NULL, 
+    tlog_img        VARCHAR2(1000)    NOT NULL, 
     user_email      VARCHAR2(50)      NOT NULL, 
-    region_id       NUMBER(18, 0)     NULL, 
     created_at      DATE              DEFAULT SYSDATE NOT NULL, 
      PRIMARY KEY (tlog_id)
 );
@@ -237,32 +233,14 @@ COMMENT ON COLUMN tb_travel_log.tlog_title IS '여행 제목';
 -- 컬럼 Comment 설정 SQL - tb_travel_log.tlog_content
 COMMENT ON COLUMN tb_travel_log.tlog_content IS '여행기록 내용';
 
--- 컬럼 Comment 설정 SQL - tb_travel_log.tlog_img1
-COMMENT ON COLUMN tb_travel_log.tlog_img1 IS '여행 사진1';
-
--- 컬럼 Comment 설정 SQL - tb_travel_log.tlog_img2
-COMMENT ON COLUMN tb_travel_log.tlog_img2 IS '여행 사진2';
-
--- 컬럼 Comment 설정 SQL - tb_travel_log.tlog_img3
-COMMENT ON COLUMN tb_travel_log.tlog_img3 IS '여행 사진3';
+-- 컬럼 Comment 설정 SQL - tb_travel_log.tlog_img
+COMMENT ON COLUMN tb_travel_log.tlog_img IS '여행 사진';
 
 -- 컬럼 Comment 설정 SQL - tb_travel_log.user_email
 COMMENT ON COLUMN tb_travel_log.user_email IS '작성자 이메일(아이디)';
 
--- 컬럼 Comment 설정 SQL - tb_travel_log.region_id
-COMMENT ON COLUMN tb_travel_log.region_id IS '지역 아이디';
-
 -- 컬럼 Comment 설정 SQL - tb_travel_log.created_at
 COMMENT ON COLUMN tb_travel_log.created_at IS '작성 일시';
-
--- Foreign Key 설정 SQL - tb_travel_log(region_id) -> tb_region(region_id)
-ALTER TABLE tb_travel_log
-    ADD CONSTRAINT FK_tb_travel_log_region_id_tb_ FOREIGN KEY (region_id)
-        REFERENCES tb_region (region_id) ;
-
--- Foreign Key 삭제 SQL - tb_travel_log(region_id)
--- ALTER TABLE tb_travel_log
--- DROP CONSTRAINT FK_tb_travel_log_region_id_tb_;
 
 -- Foreign Key 설정 SQL - tb_travel_log(user_email) -> tb_user(user_email)
 ALTER TABLE tb_travel_log
@@ -325,7 +303,7 @@ COMMENT ON COLUMN tb_comment.user_email IS '댓글 이메일(아이디)';
 
 -- Foreign Key 설정 SQL - tb_comment(recruit_id) -> tb_recruit_tm(recruit_id)
 ALTER TABLE tb_comment
-    ADD CONSTRAINT FK_tb_comment_recruit_id FOREIGN KEY (recruit_id)
+    ADD CONSTRAINT FK_tb_comment_recruit_id_tb_recruit_tm_recruit_id FOREIGN KEY (recruit_id)
         REFERENCES tb_recruit_tm (recruit_id) ;
 
 -- Foreign Key 삭제 SQL - tb_comment(recruit_id)
@@ -393,7 +371,7 @@ COMMENT ON COLUMN tb_apply.choice_yn IS '선택 여부';
 
 -- Foreign Key 설정 SQL - tb_apply(recruit_id) -> tb_recruit_tm(recruit_id)
 ALTER TABLE tb_apply
-    ADD CONSTRAINT FK_tb_apply_recruit_id FOREIGN KEY (recruit_id)
+    ADD CONSTRAINT FK_tb_apply_recruit_id_tb_recruit_tm_recruit_id FOREIGN KEY (recruit_id)
         REFERENCES tb_recruit_tm (recruit_id) ;
 
 -- Foreign Key 삭제 SQL - tb_apply(recruit_id)
@@ -405,16 +383,21 @@ ALTER TABLE tb_apply
     ADD CONSTRAINT FK_tb_apply_user_email_tb_user FOREIGN KEY (user_email)
         REFERENCES tb_user (user_email) ;
 
+-- Foreign Key 삭제 SQL - tb_apply(user_email)
+-- ALTER TABLE tb_apply
+-- DROP CONSTRAINT FK_tb_apply_user_email_tb_user;
+
+
+-- tb_schedule Table Create SQL
 -- 테이블 생성 SQL - tb_schedule
 CREATE TABLE tb_schedule
 (
     schedule_id    NUMBER           NOT NULL, 
     user_email     VARCHAR2(50)     NOT NULL, 
     title          VARCHAR2(100)    NOT NULL, 
-    start_date     TIMESTAMP        NOT NULL, 
-    end_date       TIMESTAMP        NULL, 
-    CONSTRAINT pk_user_schedule PRIMARY KEY (schedule_id),
-    CONSTRAINT fk_user_email FOREIGN KEY (user_email) REFERENCES tb_user (user_email)
+    start_date     DATE             NOT NULL, 
+    end_date       DATE             NOT NULL, 
+    CONSTRAINT pk_user_schedule PRIMARY KEY (schedule_id)
 );
 
 -- Auto Increment를 위한 Sequence 추가 SQL - tb_schedule.schedule_id
@@ -437,22 +420,31 @@ END;
 -- DROP SEQUENCE tb_schedule_SEQ; 
 
 -- 테이블 Comment 설정 SQL - tb_schedule
-COMMENT ON TABLE tb_schedule IS '일정 관리';
+COMMENT ON TABLE tb_schedule IS '일정 관리. 일정 관리';
 
 -- 컬럼 Comment 설정 SQL - tb_schedule.schedule_id
-COMMENT ON COLUMN tb_schedule.schedule_id IS '일정 식별자';
+COMMENT ON COLUMN tb_schedule.schedule_id IS '일정 식별자. 일정 식별자';
 
 -- 컬럼 Comment 설정 SQL - tb_schedule.user_email
-COMMENT ON COLUMN tb_schedule.user_email IS '회원 이메일(아이디)';
+COMMENT ON COLUMN tb_schedule.user_email IS '회원 이메일(아이디). 회원 이메일(아이디)';
 
 -- 컬럼 Comment 설정 SQL - tb_schedule.title
-COMMENT ON COLUMN tb_schedule.title IS '일정 제목';
+COMMENT ON COLUMN tb_schedule.title IS '일정 제목. 일정 제목';
 
 -- 컬럼 Comment 설정 SQL - tb_schedule.start_date
-COMMENT ON COLUMN tb_schedule.start_date IS '시작날짜';
+COMMENT ON COLUMN tb_schedule.start_date IS '시작 날짜. 시작날짜';
 
 -- 컬럼 Comment 설정 SQL - tb_schedule.end_date
-COMMENT ON COLUMN tb_schedule.end_date IS '종료날짜';
+COMMENT ON COLUMN tb_schedule.end_date IS '종료 날짜. 종료날짜';
+
+-- Foreign Key 설정 SQL - tb_schedule(user_email) -> tb_user(user_email)
+ALTER TABLE tb_schedule
+    ADD CONSTRAINT fk_user_email FOREIGN KEY (user_email)
+        REFERENCES tb_user (user_email) ;
+
+-- Foreign Key 삭제 SQL - tb_schedule(user_email)
+-- ALTER TABLE tb_schedule
+-- DROP CONSTRAINT fk_user_email;
 
 -- Foreign Key 설정 SQL - tb_schedule(user_email) -> tb_user(user_email)
 ALTER TABLE tb_schedule
@@ -461,10 +453,40 @@ ALTER TABLE tb_schedule
 
 -- Foreign Key 삭제 SQL - tb_schedule(user_email)
 -- ALTER TABLE tb_schedule
--- DROP CONSTRAINT FK_tb_schedule_user_email_tb_user_user_email;
+-- DROP CONSTRAINT FK_tb_schedule_user_email;
 
 
-commit;
--- Foreign Key 삭제 SQL - tb_apply(user_email)
--- ALTER TABLE tb_apply
--- DROP CONSTRAINT FK_tb_apply_user_email_tb_user;
+-- tb_mbti_detail Table Create SQL
+-- 테이블 생성 SQL - tb_mbti_detail
+CREATE TABLE tb_mbti_detail
+(
+    category_no    NUMBER(18, 0)    NOT NULL, 
+    mbti           VARCHAR2(4)      NOT NULL, 
+     PRIMARY KEY (category_no)
+);
+
+-- 컬럼 Comment 설정 SQL - tb_mbti_detail.category_no
+COMMENT ON COLUMN tb_mbti_detail.category_no IS '카테고리 아이디';
+
+-- 컬럼 Comment 설정 SQL - tb_mbti_detail.mbti
+COMMENT ON COLUMN tb_mbti_detail.mbti IS 'mbti';
+
+-- Foreign Key 설정 SQL - tb_mbti_detail(mbti) -> tb_mbti(mbti)
+ALTER TABLE tb_mbti_detail
+    ADD CONSTRAINT FK_tb_mbti_detail_mbti_tb_mbti_mbti FOREIGN KEY (mbti)
+        REFERENCES tb_mbti (mbti) ;
+
+-- Foreign Key 삭제 SQL - tb_mbti_detail(mbti)
+-- ALTER TABLE tb_mbti_detail
+-- DROP CONSTRAINT FK_tb_mbti_detail_mbti_tb_mbti_mbti;
+
+-- Foreign Key 설정 SQL - tb_mbti_detail(category_no) -> tb_category(category_no)
+ALTER TABLE tb_mbti_detail
+    ADD CONSTRAINT FK_tb_mbti_detail_category_no_tb_category_category_no FOREIGN KEY (category_no)
+        REFERENCES tb_category (category_no) ;
+
+-- Foreign Key 삭제 SQL - tb_mbti_detail(category_no)
+-- ALTER TABLE tb_mbti_detail
+-- DROP CONSTRAINT FK_tb_mbti_detail_category_no_tb_category_category_no;
+
+

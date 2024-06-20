@@ -1,90 +1,108 @@
-body {
-    font-family: Arial, sans-serif;
+/* 사용자 정의 폰트를 불러오는 부분 */
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* body와 html 기본 스타일 */
+body, html {
     margin: 0;
     padding: 0;
-}
-
-.header {
-    background-color: #2196F3;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-}
-
-.navbar {
-    overflow: hidden;
-    background-color: #333;
-    position: fixed;
-    top: 0;
     width: 100%;
-    z-index: 1000;
+    font-family: 'S-CoreDream-3Light', sans-serif;
 }
 
-.navbar a {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.navbar a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-.container {
+.logwrite-container {
     width: 80%;
-    margin: 80px auto 0 auto;
+    margin: 50px auto;
     padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
 }
 
-.form-group {
+.logwrite-container h1 {
+    text-align: left;
+    font-size: 40px;
     margin-bottom: 20px;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* 세로 중앙 정렬을 위해 추가 */
 }
 
-.form-group input[type="text"],
-.form-group input[type="file"],
-.form-group textarea {
-    width: 100%;
+.form-group input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+    width: 100%; /* 현재 컨테이너 너비의 100%로 설정 */
+    box-sizing: border-box;
+    margin-right: 10px;
+}
+
+.form-group input[type="file"] {
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #ddd;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+    box-sizing: border-box;
+    width: 230px;
+    white-space: nowrap; /* 텍스트 줄 바꿈 방지 */
+    flex-shrink: 0; /* 버튼 크기 고정 */
+}
+
+
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 16px;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+    width: 100%;
     box-sizing: border-box;
 }
 
 .form-group textarea {
-    height: 200px;
+    height: 400px;
+    resize: none;
 }
 
-.button-group {
-    text-align: right;
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
 }
 
-.button-group button {
+.form-buttons .btn-primary,
+.form-buttons .btn-secondary {
     padding: 10px 20px;
-    font-size: 16px;
-    margin-left: 10px;
     border: none;
+    border-radius: 4px;
+    font-size: 16px;
     cursor: pointer;
+    font-family: 'S-CoreDream-3Light', sans-serif;
 }
 
-.button-group button[type="button"] {
-    background-color: #f1f1f1;
-    color: black;
+.form-buttons .btn-secondary {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #000;
+    margin-right: 10px;
+    
 }
 
-.button-group button[type="submit"] {
-    background-color: #2196F3;
-    color: white;
+.form-buttons .btn-primary {
+    background-color: #0fb0ff;
+    border: 1px solid #ccc;
+    color: #fff;
+}
+
+.form-buttons .btn-secondary:hover {
+    background-color: #d3d3d3;
+}
+
+.form-buttons .btn-primary:hover {
+    background-color: #007bb5;
 }

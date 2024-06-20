@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.T_T.database.TravelLogMapper">
+
+    <!-- 여행 로그를 페이징 처리하여 선택하는 쿼리 -->
+    <select id="selectTravelLogs" resultType="com.T_T.model.TravelLog" parameterType="PaginationParams">
+        SELECT * FROM (
+         SELECT a.*, ROWNUM AS rnum FROM (
+             SELECT 
+                  TLOG.TLOG_ID AS tlog_id,
+                  TLOG.TLOG_IMG AS tlog_img,
+                  TLOG.TLOG_TITLE AS tlog_title,
+                  TLOG.TLOG_CONTENT AS tlog_content,
+                  TLOG.USER_EMAIL AS user_email,
+                  TLOG.CREATED_AT AS created_at,
+                  U.USER_NAME AS user_name,
+                  U.USER_MBTI AS user_mbti
+              FROM TB_TRAVEL_LOG TLOG
+              JOIN TB_USER U ON TLOG.USER_EMAIL = U.USER_EMAIL
+              <if test="title != null">
+                 WHERE TLOG.TLOG_TITLE LIKE '%' || #{title} || '%'
+              </if>
+              <if test="mbti != null">
+                 WHERE U.USER_MBTI LIKE '%' || #{mbti} || '%'
+              </if>
+              <if test="author != null">
+                 WHERE U.USER_NAME LIKE '%' || #{author} || '%'
+              </if>
+           ORDER BY TLOG.TLOG_ID DESC) a
+    <![CDATA[
+        ) WHERE rnum >= #{page} * 3 - 2 AND rnum <= #{page} * 3
+        ]]>
+    </select>
+
+    <!-- 총 여행 로그 수를 구하는 쿼리 -->
+    <select id="countTravelLogs" resultType="int">
+        SELECT COUNT(*) FROM (
+        SELECT 
+                  TLOG.TLOG_ID AS tlog_id,
+                  TLOG.TLOG_IMG AS tlog_img,
+                  TLOG.TLOG_TITLE AS tlog_title,
+                  TLOG.TLOG_CONTENT AS tlog_content,
+                  TLOG.USER_EMAIL AS user_email,
+                  TLOG.CREATED_AT AS created_at,
+                  U.USER_NAME AS user_name,
+                  U.USER_MBTI AS user_mbti
+              FROM TB_TRAVEL_LOG TLOG
+              JOIN TB_USER U ON TLOG.USER_EMAIL = U.USER_EMAIL
+              <if test="title != null">
+                 WHERE TLOG.TLOG_TITLE LIKE '%' || #{title} || '%'
+              </if>
+              <if test="mbti != null">
+                 WHERE U.USER_MBTI LIKE '%' || #{mbti} || '%'
+              </if>
+              <if test="author != null">
+                 WHERE U.USER_NAME LIKE '%' || #{author} || '%'
+              </if>
+              )
+    </select>
+
+    <!-- 총 여행 로그 수를 구하는 쿼리 -->
+    <select id="countTravelLogsTitle" resultType="int">
+        SELECT COUNT(*) FROM (
+         SELECT a.*, ROWNUM AS rnum FROM (
+             SELECT 
+                  TLOG.TLOG_ID AS tlog_id,
+                  TLOG.TLOG_IMG AS tlog_img,
+                  TLOG.TLOG_TITLE AS tlog_title,
+                  TLOG.TLOG_CONTENT AS tlog_content,
+                  TLOG.USER_EMAIL AS user_email,
+                  TLOG.CREATED_AT AS created_at,
+                  U.USER_NAME AS user_name,
+                  U.USER_MBTI AS user_mbti
+              FROM TB_TRAVEL_LOG TLOG
+              JOIN TB_USER U ON TLOG.USER_EMAIL = U.USER_EMAIL
+              WHERE TLOG.TLOG_TITLE LIKE '%' || #{search} || '%'
+           ORDER BY TLOG.CREATED_AT DESC) a
+    </select>
+
+    <!-- 여행 로그를 삽입하는 쿼리 -->
+    <insert id="insertTravelLog" parameterType="com.T_T.model.TravelLog">
+        INSERT INTO TB_TRAVEL_LOG (TLOG_ID, TLOG_IMG, TLOG_TITLE, TLOG_CONTENT, USER_EMAIL, CREATED_AT)
+        VALUES (TB_TRAVEL_LOG_SEQ.NEXTVAL, #{tlog_img}, #{tlog_title}, #{tlog_content}, #{user_email}, #{created_at})
+    </insert>
+
+</mapper>
