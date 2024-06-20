@@ -362,7 +362,6 @@
            
            // 서버 사이드 URL 설정
             const updateUrl = '${pageContext.request.contextPath}/UpdateCon'; // 실제 서버 사이드에서 처리될 URL
-         console.log(json_data)
             fetch(updateUrl,{
                method: 'POST',
                headers: {
