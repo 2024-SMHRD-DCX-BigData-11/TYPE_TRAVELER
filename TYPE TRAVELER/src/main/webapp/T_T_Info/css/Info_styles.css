@@ -19,7 +19,7 @@ body, html {
 
 .travel-info {
     padding: 10px;
-	max-width: 1400px;
+   max-width: 1400px;
     margin: 50px auto 0;
 }
 
@@ -198,6 +198,12 @@ body, html {
     white-space: nowrap;
     overflow-y: hidden;
     text-overflow: ellipsis;
+    width: 341px;
+   /* 임시 */
+    white-space: nowrap; /* 텍스트를 한 줄로 유지합니다 */
+    overflow: hidden; /* 넘치는 내용을 숨깁니다 */
+    text-overflow: ellipsis;
+    width: 270px;
 }
 
 .travel-details h2 {
@@ -209,24 +215,51 @@ body, html {
 .travel-details p {
     margin: 3px 0;
     color: #777;
+    white-space: nowrap;
+    overflow: hidden; /* 수평 및 수직 오버플로를 모두 숨김 */
+    text-overflow: ellipsis;
 }
 
 .pagination {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    margin: 20px 0; /* Adjusted margin for top and bottom */
 }
 
 .pagination a {
-    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 5px 10px;
-    border: 1px solid #d3d3d3;
+    margin: 0 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
     text-decoration: none;
-    color: #333;
+    color: black;
 }
 
+.pagination .page-log,
 .pagination .page-info {
-    margin: 0 10px;
+    font-size: 16px;
+    cursor: default;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: black;
+}
+
+.pagination a:hover {
+    border-color: #fff;
+}
+
+.pagination a:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.pagination a:active {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
