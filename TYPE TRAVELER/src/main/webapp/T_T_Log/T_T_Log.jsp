@@ -68,9 +68,9 @@
         </div>
 
       <div class="pagination">
-          <a href="${pageContext.request.contextPath}/TravelLogCon?search=${search}&type=${type}&page=${currentPage-1}" class="prev">&lt;</a>
+         <a href="#" class="prev">&lt;</a>
           <span class="page-log">${currentPage} / ${totalPages}</span>
-          <a href="${pageContext.request.contextPath}/TravelLogCon?search=${search}&type=${type}&page=${currentPage+1}" class="next">&gt;</a>
+          <a href="#" class="next">&gt;</a>
       </div>
 
         
@@ -92,6 +92,23 @@
     %>
     </div>
     <script>
+       const prevButton = document.querySelector('.pagination .prev');
+       const nextButton = document.querySelector('.pagination .next');
+       prevButton.addEventListener('click', (e) => {
+           if (${currentPage} <= 1) {
+              e.preventDefault();
+           } else {
+              window.location.href = '${pageContext.request.contextPath}/TravelLogCon?search=${search}&type=${type}&page=${currentPage-1}';
+           }
+       });
+       nextButton.addEventListener('click', (e) => {
+           if (${currentPage} >= ${totalPages}) {
+              e.preventDefault();
+           } else {
+              window.location.href = '${pageContext.request.contextPath}/TravelLogCon?search=${search}&type=${type}&page=${currentPage+1}';
+           }
+       });
+    
        document.getElementById('search-btn').addEventListener('click', function() {
           window.location.href = '${pageContext.request.contextPath}/TravelLogCon?search=' + document.getElementById('search').value + '&type=' + document.getElementById('searchCategory').value; // 여행기록 페이지로 이동
        });
