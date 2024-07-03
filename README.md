@@ -129,7 +129,7 @@
     <td align="center"><strong>최석주</strong></td>
     <td align="center"><strong>김용민</strong></td>
     <td align="center"><strong>봉소희</strong></td>
-    <td align="center"><strong>김용민</strong></td>
+    <td align="center"><strong>장희종</strong></td>
   </tr>
   <tr>
     <td align="center"><b>PM&Backend</b></td>
