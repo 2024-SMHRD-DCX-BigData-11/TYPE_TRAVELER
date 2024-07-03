@@ -126,32 +126,33 @@
 <br><br><br>
 
 ## 📌 서비스 흐름도
-![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/86377ad5-da33-4361-8fe0-f3b4f53602a9)
+<img width="1416" alt="서비스흐름도" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/e7d0a0c9-8e98-483b-9915-a399bcd86f14">
 <br><br><br>
 
 ## 📌 ER다이어그램
 ![스크린샷 2024-07-03 155822](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/3db6db7c-8b00-4c90-8f42-d946817a6aa3)
-
 <br><br><br>
 
 ## 🖥 화면 구성
 
-### *#로그인/회원가입/회원수정*
-![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/53705d30-04b5-4c4d-b84b-731762fce1f9)
-![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/78061f4b-b272-405c-968f-8c8e852ad8b1)
-![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/46a3116a-fcfe-44e1-a94e-16fd42b84230)
+### *#메인 페이지*
+![메인](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/0caabc4e-a07f-4de2-bd1c-ab30aff807b2)
+![메인세부](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/93b806a4-ed26-4e58-b35f-a5b716a484ad)
+<br><br>
 
-<br>
+### *#회원가입/로그인/회원수정 모달*
+![회원가입](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/ebe42072-b405-45a0-8a3a-5b54465056af)
+![로그인](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/19ad8e37-45cf-4879-890a-572255554c75)
+![회원수정](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/a42602f1-d766-4031-8fdb-b43a1cc40c6a)
+<br><br>
 
-### *#여행 정보/카테고리별 여행지 추천*
-![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/f849c40e-4d85-4b7d-9115-4543207d8c72)
+### *#여행 정보/카테고리별 여행지 추천 페이지*
+![여행정보](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/1ed01b5b-ea1d-4a78-8efe-bb90ccb2ac06)
+<br><br>
 
-
-<br>
-
-### *#여행기록*
-![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/527279e4-2ee3-4fc4-aff0-81c2b1328fe0)
-
+### *#여행기록 페이지*
+![여행기록](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/844facd0-bc16-432e-a6ce-d2490b2846ca)
+![여행기록글쓰기](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/53457df7-aaa0-45a7-b329-8cd7ced005f0)
 <br><br>
 
 ## 👨‍👩‍👦‍👦 팀원 역할
@@ -177,7 +178,7 @@
   <tr>
     <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
+    <td align="center"><a href="sone6ee" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
   </tr>
 </table>
