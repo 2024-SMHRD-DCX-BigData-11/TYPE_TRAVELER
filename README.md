@@ -176,10 +176,10 @@
     <td align="center"><b>Backend&DB</b></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/sone6ee" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/qwer010310" target='_blank'>qwer010310</a></td>
+    <td align="center"><a href="https://github.com/yong99min" target='_blank'>yong99min</a></td>
+    <td align="center"><a href="https://github.com/sone6ee" target='_blank'>sone6ee</a></td>
+    <td align="center"><a href="https://github.com/hecki1206" target='_blank'>hecki1206</a></td>
   </tr>
 </table>
 <br><br>
