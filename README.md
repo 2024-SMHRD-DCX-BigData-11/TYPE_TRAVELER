@@ -2,6 +2,7 @@
 ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/3f5f7524-17e5-4828-b0ca-8500e6f27bfb)
 
 
+
 ## 👀 서비스 소개
 * 서비스명:  TYPE TRAVELER 
 * 서비스설명: MBTI 유형별 여행지 추천 서비스
@@ -13,10 +14,20 @@
 
 ## ⭐ 주요 기능
 * 기능1
+* ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/96bbb469-48ba-446b-ab41-715e4f6259dd)
+
 * 기능2
+* ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/5e7a4bca-1506-4701-bee1-b9f23edb7cf6)
+
 * 기능3
+* ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/2862c8d5-dd7b-4dcc-9ad4-66ce8436f11e)
+
 * 기능4
+* ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/d7ba60b3-b76b-4a6c-b5ee-d44a2caa90ec)
+
 * 기능5
+* ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/5feccafa-aeb3-43b0-90f0-be6aa7699310)
+
 <br>
 
 ## ⛏ 기술스택
@@ -93,11 +104,12 @@
 </table>
 
 ## 🤾‍♂️ 트러블슈팅
-개념: 문제 해결을 위해 문제의 원인을 논리적이고 체계적으로 찾는 일이며 제품이나 프로세스의 운영을 재개
-프로젝트 진행하는 동안 발생했던 이슈 중 가장 기억에 남았던 문제와 해결 프로세스 나열(2~5가지 정도)
-  
+
 * 문제1<br>
  문제점 설명 및 해결방안
+![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/fdef4d9f-9dd9-40b9-93f3-7bbc4be4cf90)
+
  
 * 문제2<br>
  문제점 설명 및 해결방안
+![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/c06ac482-82e4-4762-9f39-70809388978e)
