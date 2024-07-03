@@ -1,4 +1,4 @@
-# ✈️🌐TYPE TRAVELER(팀명: T_T)
+# ✈️🌐TYPE TRAVELER (팀명: T_T)
 ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/3f5f7524-17e5-4828-b0ca-8500e6f27bfb)
 <br><br><br>
 
@@ -63,23 +63,58 @@
 <br><br>
 
 ## ⭐ 주요 기능
-* 기능1
-* ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/96bbb469-48ba-446b-ab41-715e4f6259dd)
-
-* 기능2
-* ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/5e7a4bca-1506-4701-bee1-b9f23edb7cf6)
-
-* 기능3
-* ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/2862c8d5-dd7b-4dcc-9ad4-66ce8436f11e)
-
-* 기능4
-* ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/d7ba60b3-b76b-4a6c-b5ee-d44a2caa90ec)
-
-* 기능5
-* ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/5feccafa-aeb3-43b0-90f0-be6aa7699310)
-
-<br>
-
+<table>
+    <tr>
+        <td>
+            <br>
+            <p>$\huge{\it{\large{\color{#6580DD}\#클릭\ 기반\ 마커\ 애니메이션\ 기능}}}$</p><br>
+            <img width="730" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/24993392-a724-44bb-813f-c48692e96f69" alt="01_지도_마커">
+            <img width="250" alt="01" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/f0d31f53-7f6d-420a-9086-3da502708ccc">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <br>
+            <p>$\huge{\it{\large{\color{#6580DD}\#단계별\ 선택에\ 기반한\ 여행지\ 추천}}}$</p><br>
+            <img width="730" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/50b4be31-9901-40b2-9e71-5c78190d4d9e" alt="02_step_선택_영상">
+            <img width="250" alt="02" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/f5a978df-0e68-4479-a8a8-66e8c9e5c8f1">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <br>
+            <p>$\huge{\it{\large{\color{#6580DD}\#태그\ 기반\ 여행\ 정보\ 필터링}}}$</p><br>
+            <img width="730" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/0698b96d-afb1-4f30-8e98-124d40d7e4ef" alt="03_여행정보">
+            <img width="250" alt="03" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/cb9f064b-f4ee-4b8f-9fa6-ee75256add7b">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <br>
+            <p>$\huge{\it{\large{\color{#6580DD}\#회원별\ 일정\ 관리\ 기능}}}$</p><br>
+            <img width="730" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/43729748-f9a4-4642-98f5-6d6f8e822ffd" alt="04_일정">
+            <img width="250" alt="04" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/458b3c42-2ff1-4af2-97ef-5ae011aef47e">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <br>
+            <p>$\huge{\it{\large{\color{#6580DD}\#여행\ 기록\ 작성}}}$</p><br>
+            <img width="730" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/a6bf7863-ac54-4367-9ddc-43085dfb72ca" alt="05_기록글쓰기">
+            <img width="250" alt="05" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/ecc136cf-b07a-49d5-8c69-772a33c64127">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <br>
+            <p>$\huge{\it{\large{\color{#6580DD}\#회원\ 정보\ 관리\ 기능}}}$</p><br>
+            <img width="430" height="380" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/da253107-7090-4c98-a5c0-961cf74e8e60" alt="06_회원가입">
+            <img width="550" height="380" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/2f54f210-ae11-43fb-a45e-bea7a90d09a5" alt="06_회원(정보수정)">
+            <img width="980" alt="06" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/21f067c8-e8fc-42c7-af88-6ec06b8a21f7">
+        </td>
+    </tr>
+</table>
+<br><br>
 
 ## ⚙ 시스템 아키텍처 
 ![아키ㅔㄱ처](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/2e5bb22a-572a-4a1f-ba57-5cbeb6eaf747)
