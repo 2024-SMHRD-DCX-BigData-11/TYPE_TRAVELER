@@ -118,41 +118,41 @@
 
 ## ⚙ 시스템 아키텍처 
 ![아키ㅔㄱ처](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/2e5bb22a-572a-4a1f-ba57-5cbeb6eaf747)
-<br>
+<br><br><br>
 
 ## 📌 SW유스케이스
 ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/2a911a7f-7d0e-4724-bd11-1ae2185b0203)
 ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/79a410b8-5586-4d95-938b-d36acd5dff22)
-<br>
+<br><br><br>
 
 ## 📌 서비스 흐름도
 ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/86377ad5-da33-4361-8fe0-f3b4f53602a9)
-<br>
+<br><br><br>
 
 ## 📌 ER다이어그램
 ![스크린샷 2024-07-03 155822](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/3db6db7c-8b00-4c90-8f42-d946817a6aa3)
 
-<br>
+<br><br><br>
 
 ## 🖥 화면 구성
 
-### 로그인/회원가입/회원수정
+### *#로그인/회원가입/회원수정*
 ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/53705d30-04b5-4c4d-b84b-731762fce1f9)
 ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/78061f4b-b272-405c-968f-8c8e852ad8b1)
 ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/46a3116a-fcfe-44e1-a94e-16fd42b84230)
 
 <br>
 
-### 여행 정보/카테고리별 여행지 추천
+### *#여행 정보/카테고리별 여행지 추천*
 ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/f849c40e-4d85-4b7d-9115-4543207d8c72)
 
 
 <br>
 
-### 여행기록
+### *#여행기록*
 ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/527279e4-2ee3-4fc4-aff0-81c2b1328fe0)
 
-<br>
+<br><br>
 
 ## 👨‍👩‍👦‍👦 팀원 역할
 <table>
@@ -181,14 +181,13 @@
     <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
   </tr>
 </table>
+<br><br>
 
-## 🤾‍♂️ 트러블슈팅
+## 🤾‍♂️ 트러블슈팅(문제점 설명 및 해결방안)
 
-* 문제1<br>
- 문제점 설명 및 해결방안
-![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/fdef4d9f-9dd9-40b9-93f3-7bbc4be4cf90)
+* 문제 ① <br>
+<img width="943" alt="문제1" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/9eaaced3-1545-4961-9727-2d8ffd7c600b">
 
  
-* 문제2<br>
- 문제점 설명 및 해결방안
-![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/c06ac482-82e4-4762-9f39-70809388978e)
+* 문제 ② <br>
+<img width="953" alt="문제2" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/b47263b2-ead2-472f-bed2-e426feba54d3">
