@@ -49,12 +49,13 @@
 
 <br>
 
-### 옷 정보/코디 추천(날씨, 팁, 오늘의 코디, 참고할 수 있는 코디)
+### 여행 정보/카테고리별 여행지 추천
 ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/f849c40e-4d85-4b7d-9115-4543207d8c72)
+
 
 <br>
 
-### 일정/고객센터
+### 여행기록
 ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/527279e4-2ee3-4fc4-aff0-81c2b1328fe0)
 
 <br>
