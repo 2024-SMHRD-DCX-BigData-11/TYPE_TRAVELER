@@ -20,60 +20,7 @@
 <br>
 
 ## ⛏ 기술스택
-<table>
-    <tr>
-        <th>구분</th>
-        <th>내용</th>
-    </tr>
-    <tr>
-        <td>사용언어</td>
-        <td>
-            <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"/>
-            <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white"/>
-            <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white"/>
-            <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white"/>
-        </td>
-    </tr>
-    <tr>
-        <td>라이브러리</td>
-        <td>
-            <img src="https://img.shields.io/badge/BootStrap-7952B3?style=for-the-badge&logo=BootStrap&logoColor=white"/>
-            <img src="https://img.shields.io/badge/KakaoMap-FFCD00?style=for-the-badge&logo=Kakao&logoColor=white"/>
-        </td>
-    </tr>
-    <tr>
-        <td>개발도구</td>
-        <td>
-            <img src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=Eclipse&logoColor=white"/>
-            <img src="https://img.shields.io/badge/RaskpberryPi-A22846?style=for-the-badge&logo=RaskpberryPi&logoColor=white"/>
-            <img src="https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white"/>
-            <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor=white"/>
-        </td>
-    </tr>
-    <tr>
-        <td>서버환경</td>
-        <td>
-            <img src="https://img.shields.io/badge/Apache Tomcat-D22128?style=for-the-badge&logo=Apache Tomcat&logoColor=white"/>
-        </td>
-    </tr>
-    <tr>
-        <td>데이터베이스</td>
-        <td>
-            <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=Firebase&logoColor=white"/>
-            <img src="https://img.shields.io/badge/Oracle 11g-F80000?style=for-the-badge&logo=Oracle&logoColor=white"/>
-        </td>
-    </tr>
-    <tr>
-        <td>협업도구</td>
-        <td>
-            <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white"/>
-            <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>
-        </td>
-    </tr>
-</table>
-
-
-<br>
+![개발 도구](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/e9abc5aa-d972-434a-af11-077e42a3fcde)
 
 ## ⚙ 시스템 아키텍처(구조) 예시 
 ![서비스 아키텍처](https://user-images.githubusercontent.com/25995055/169925538-15867bd9-aa0b-42fc-a39b-88981e926e51.png)
