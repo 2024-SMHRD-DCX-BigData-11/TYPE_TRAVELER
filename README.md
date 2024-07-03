@@ -32,7 +32,7 @@
 <br>
 
 ## 📌 서비스 흐름도
-![image](https://user-images.githubusercontent.com/25995055/178401048-d6484bda-a2d7-40e1-998b-2bd195cd9f89.png)
+![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/86377ad5-da33-4361-8fe0-f3b4f53602a9)
 <br>
 
 ## 📌 ER다이어그램
