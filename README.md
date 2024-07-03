@@ -22,8 +22,8 @@
 ## ⛏ 기술스택
 ![개발 도구](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/e9abc5aa-d972-434a-af11-077e42a3fcde)
 
-## ⚙ 시스템 아키텍처(구조) 예시 
-![서비스 아키텍처](https://user-images.githubusercontent.com/25995055/169925538-15867bd9-aa0b-42fc-a39b-88981e926e51.png)
+## ⚙ 시스템 아키텍처 
+![아키ㅔㄱ처](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/2e5bb22a-572a-4a1f-ba57-5cbeb6eaf747)
 <br>
 
 ## 📌 SW유스케이스
