@@ -36,7 +36,8 @@
 <br>
 
 ## 📌 ER다이어그램
-![image](https://user-images.githubusercontent.com/25995055/169925318-102784c2-893f-4fd7-bec9-a54c44b669d4.png)
+![스크린샷 2024-07-03 155822](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/3db6db7c-8b00-4c90-8f42-d946817a6aa3)
+
 <br>
 
 ## 🖥 화면 구성
