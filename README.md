@@ -28,6 +28,7 @@
 
 ## 📌 SW유스케이스
 ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/2a911a7f-7d0e-4724-bd11-1ae2185b0203)
+![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/79a410b8-5586-4d95-938b-d36acd5dff22)
 <br>
 
 ## 📌 서비스 흐름도
