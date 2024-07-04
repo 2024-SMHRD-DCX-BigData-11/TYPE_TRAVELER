@@ -120,7 +120,7 @@
 ![아키ㅔㄱ처](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/2e5bb22a-572a-4a1f-ba57-5cbeb6eaf747)
 <br><br><br>
 
-## 📄 SW유스케이스
+## 📄 SW 유스 케이스
 ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/2a911a7f-7d0e-4724-bd11-1ae2185b0203)
 ![image](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/79a410b8-5586-4d95-938b-d36acd5dff22)
 <br><br><br>
@@ -129,7 +129,7 @@
 <img width="1416" alt="서비스흐름도" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/e7d0a0c9-8e98-483b-9915-a399bcd86f14">
 <br><br><br>
 
-## 📄 ER다이어그램
+## 📄 ER 다이어그램
 ![스크린샷 2024-07-03 155822](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/169413217/3db6db7c-8b00-4c90-8f42-d946817a6aa3)
 <br><br><br>
 
@@ -140,7 +140,7 @@
 ![메인세부](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/93b806a4-ed26-4e58-b35f-a5b716a484ad)
 <br><br>
 
-### *#회원가입/로그인/회원수정 모달*
+### *#회원가입/로그인/회원 수정 모달*
 ![회원가입](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/ebe42072-b405-45a0-8a3a-5b54465056af)
 ![로그인](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/19ad8e37-45cf-4879-890a-572255554c75)
 ![회원수정](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/a42602f1-d766-4031-8fdb-b43a1cc40c6a)
@@ -150,7 +150,7 @@
 ![여행정보](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/1ed01b5b-ea1d-4a78-8efe-bb90ccb2ac06)
 <br><br>
 
-### *#여행기록 페이지*
+### *#여행 기록 페이지*
 ![여행기록](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/844facd0-bc16-432e-a6ce-d2490b2846ca)
 ![여행기록글쓰기](https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/53457df7-aaa0-45a7-b329-8cd7ced005f0)
 <br><br><br>
@@ -181,12 +181,12 @@
                        <span>- 캘린더 추가/수정/삭제 기능 및 디자인</span>
     </td>
     <td align="left"><span>- 여행지 정보 데이터 수집(크롤링)</span><br>
-                       <span>- 서비스 흐름도, 메뉴구성, 시연 페이퍼 제작</span><br>
+                       <span>- 서비스 흐름도, 메뉴 구성, 시연 페이퍼 제작</span><br>
                        <span>- 마이페이지 수정 기능</span>
     </td>
     <td align="left"><span>- FRONT-END 메인</span><br>
                        <span>- BACK-END 서브</span><br>
-                       <span>- 로그인 및 여행기록 및 글쓰기 기능</span>
+                       <span>- 로그인 및 여행 기록 및 글쓰기 기능</span>
     </td>
     <td align="left"><span>- BACKEND 메인</span><br>
                        <span>- DB 서브 담당</span><br>
