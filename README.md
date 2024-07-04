@@ -68,7 +68,7 @@
         <td>
             <br>
             <p>$\huge{\it{\large{\color{#6580DD}\#클릭\ 기반\ 마커\ 애니메이션\ 기능}}}$</p><br>
-            <img width="600" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/24993392-a724-44bb-813f-c48692e96f69" alt="01_지도_마커">
+            <img width="550" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/24993392-a724-44bb-813f-c48692e96f69" alt="01_지도_마커">
             <img width="200" alt="01" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/f0d31f53-7f6d-420a-9086-3da502708ccc">
         </td>
     </tr>
@@ -76,7 +76,7 @@
         <td>
             <br>
             <p>$\huge{\it{\large{\color{#6580DD}\#단계별\ 선택에\ 기반한\ 여행지\ 추천}}}$</p><br>
-            <img width="600" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/50b4be31-9901-40b2-9e71-5c78190d4d9e" alt="02_step_선택_영상">
+            <img width="550" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/50b4be31-9901-40b2-9e71-5c78190d4d9e" alt="02_step_선택_영상">
             <img width="200" alt="02" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/f5a978df-0e68-4479-a8a8-66e8c9e5c8f1">
         </td>
     </tr>
@@ -84,7 +84,7 @@
         <td>
             <br>
             <p>$\huge{\it{\large{\color{#6580DD}\#태그\ 기반\ 여행\ 정보\ 필터링}}}$</p><br>
-            <img width="600" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/0698b96d-afb1-4f30-8e98-124d40d7e4ef" alt="03_여행정보">
+            <img width="550" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/0698b96d-afb1-4f30-8e98-124d40d7e4ef" alt="03_여행정보">
             <img width="200" alt="03" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/cb9f064b-f4ee-4b8f-9fa6-ee75256add7b">
         </td>
     </tr>
@@ -92,7 +92,7 @@
         <td>
             <br>
             <p>$\huge{\it{\large{\color{#6580DD}\#회원별\ 일정\ 관리\ 기능}}}$</p><br>
-            <img width="600" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/43729748-f9a4-4642-98f5-6d6f8e822ffd" alt="04_일정">
+            <img width="550" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/43729748-f9a4-4642-98f5-6d6f8e822ffd" alt="04_일정">
             <img width="200" alt="04" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/458b3c42-2ff1-4af2-97ef-5ae011aef47e">
         </td>
     </tr>
@@ -100,7 +100,7 @@
         <td>
             <br>
             <p>$\huge{\it{\large{\color{#6580DD}\#여행\ 기록\ 작성}}}$</p><br>
-            <img width="600" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/a6bf7863-ac54-4367-9ddc-43085dfb72ca" alt="05_기록글쓰기">
+            <img width="550" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/a6bf7863-ac54-4367-9ddc-43085dfb72ca" alt="05_기록글쓰기">
             <img width="200" alt="05" src="https://github.com/2024-SMHRD-DCX-BigData-11/TYPE_TRAVELER/assets/129751815/ecc136cf-b07a-49d5-8c69-772a33c64127">
         </td>
     </tr>
